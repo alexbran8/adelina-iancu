@@ -35,7 +35,7 @@ const App = () => {
           Formular comanda
         </Typography>
       </Grid>
-      <Grid item xs={12} sm={6}>
+      <Grid item xs={12} sm={6} lg={4}>
         <Formik
           initialValues={{
             name: '',
@@ -51,7 +51,7 @@ const App = () => {
               Yup.object().shape({
                 quantity: Yup.number().positive().required('Required'),
               })
-            ),
+            ).min(1, 'The error message if length === 0 | 1'),
           })}
           onSubmit={(values, { setSubmitting }) => {
             console.log(values)
@@ -86,11 +86,12 @@ const App = () => {
             handleSubmit,
             isSubmitting,
             setFieldValue,
+            isValid
           }) => (
            
               <Form>
- {/* Name */}
- <TextField
+
+               <TextField
                 fullWidth
                 id="name"
                 name="name"
@@ -210,7 +211,7 @@ const App = () => {
               </FieldArray>
                {/* Product Summary Section */}
                <Typography variant="h6" marginTop={3}>
-                Comanda dumneavoastra
+                Comanda dumneavoastra:
               </Typography>
               {values.products.length > 0 ? (
                 <>
@@ -237,7 +238,7 @@ const App = () => {
                 variant="contained"
                 fullWidth
                 type="submit"
-                // disabled={isSubmitting}
+                disabled={isSubmitting || !isValid}
                 style={{ marginTop: '16px' }}
               >
                 Trimite comanda
