@@ -172,7 +172,7 @@ const App = () => {
                       <div key={index}>
                         <Grid container alignItems={"center"} spacing={2}>
                           <Grid item xs={5}>
-                              <Typography variant="body1">Product {index + 1} ({product.type})</Typography>
+                              <Typography variant="body1">Produsul {index + 1} ({product.type})</Typography>
                           </Grid>
                           <Grid item xs={4}>
                             <TextField
@@ -218,7 +218,7 @@ const App = () => {
                 {values.products.map((product, index) => (
                   <Typography variant="body1" key={index}>
                     
-                    {`Produsul ${index + 1}: ${product.description} ${product.type} - Cantitatea: ${product.quantity} : Pretul ${product.quantity * product.price}`}
+                    {`Produsul ${index + 1}: ${product.type} - Cantitatea: ${product.quantity} : Pretul ${product.quantity * product.price}`}
                     
                   </Typography>
                 ))}
