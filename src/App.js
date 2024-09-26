@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Formik, FieldArray,Form } from 'formik';
+import { Formik, FieldArray, Form } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import {
@@ -18,18 +18,46 @@ import RemoveIcon from '@mui/icons-material/Remove';
 
 const App = () => {
   const [selectedProductType, setSelectedProductType] = useState('');
+  const [isOrderSent, setIsOrderSent] = useState(false)
 
-  const productTypes = ['Electronics', 'Books', 'Furniture', 'Clothing']; // You can add more types as needed
+  const productTypes = [
+    'COZONAC BABKA NUTELA SI NUCA',
+    'COZONAC BABKA VANILIE SI MERE',
+    'COZONAC BABKA MAC SI VISINE',
+    'COZONAC BABKA FISTIC SI ZMEURA',
+    'COZONAC MAC',
+    'COZONAC NUCA',
+    'COZONAC RAHAT',
+    'PRAJITURA ASORTATA',
+    'FURSECURI',
+    'CARROT CAKE',
+    'PANETTONE',
+    'MINI BABKA',
+    'SARATELE',
+    'PASCA'
+  ]; 
 
   const defaultPrices = {
-    Electronics: 100,
-    Books: 20,
-    Furniture: 200,
-    Clothing: 30,
+    'COZONAC BABKA NUTELA SI NUCA': 100,
+    'COZONAC BABKA VANILIE SI MERE': 100,
+    'COZONAC BABKA MAC SI VISINE': 100,
+    'COZONAC BABKA FISTIC SI ZMEURA': 120,
+    'COZONAC MAC': 70,
+    'COZONAC NUCA':70,
+    'COZONAC RAHAT':70,
+    'PRAJITURA ASORTATA':100,
+    'FURSECURI':90,
+    'CARROT CAKE':200,
+    'PANETTONE':120,
+    'MINI BABKA':60,
+    'SARATELE':70,
+    'PASCA':80
   };
 
   return (
     <Grid container spacing={2} justifyContent="center" padding={2}>
+      { !isOrderSent ?
+      <>
       <Grid item xs={12}>
         <Typography variant="h4" align="center">
           Formular comanda
@@ -56,17 +84,16 @@ const App = () => {
           onSubmit={(values, { setSubmitting }) => {
             console.log(values)
             const formData = new FormData();
-            formData.append('name',values.name)
-            formData.append('phone',values.phone)
-            formData.append('email',values.email)
+            formData.append('name', values.name)
+            formData.append('phone', values.phone)
+            formData.append('email', values.email)
             formData.append('products', JSON.stringify(values.products));
             axios
               .post(
-               'https://script.google.com/macros/s/AKfycbwhE1I87g8qode8gFgTZF4CS2Eug0EG8D1w0apiDpsbl_QluqB56WtU414k_w4TJdBR/exec',
-               formData
+                'https://script.google.com/macros/s/AKfycbwUVszx4bfoMSF508wTyO-nENO3N5O1E7qMihVfr-3gLcMv1SkFYVs1QMmy-a3Etfw9/exec',
+                formData
               )
               .then((response) => {
-                alert('Form Submitted Successfully!');
               })
               .catch((error) => {
                 console.error('Error submitting form:', error);
@@ -74,6 +101,7 @@ const App = () => {
               })
               .finally(() => {
                 setSubmitting(false);
+                setIsOrderSent(true)
               });
           }}
         >
@@ -88,10 +116,10 @@ const App = () => {
             setFieldValue,
             isValid
           }) => (
-           
-              <Form>
 
-               <TextField
+            <Form>
+
+              <TextField
                 fullWidth
                 id="name"
                 name="name"
@@ -130,7 +158,7 @@ const App = () => {
                 margin="normal"
               />
 
-                <FormControl fullWidth margin="normal">
+              <FormControl fullWidth margin="normal">
                 <InputLabel>Produs</InputLabel>
                 <Select
                   value={selectedProductType}
@@ -172,7 +200,7 @@ const App = () => {
                       <div key={index}>
                         <Grid container alignItems={"center"} spacing={2}>
                           <Grid item xs={5}>
-                              <Typography variant="body1">Produsul {index + 1} ({product.type})</Typography>
+                            <Typography variant="body1">Produsul {index + 1} ({product.type})</Typography>
                           </Grid>
                           <Grid item xs={4}>
                             <TextField
@@ -195,7 +223,7 @@ const App = () => {
                               margin="normal"
                             />
                           </Grid>
-                          <Grid item xs={2}  marginLeft={1}>
+                          <Grid item xs={2} marginLeft={1}>
                             <IconButton
                               aria-label="remove product"
                               onClick={() => remove(index)}
@@ -209,21 +237,21 @@ const App = () => {
                   </>
                 )}
               </FieldArray>
-               {/* Product Summary Section */}
-               <Typography variant="h6" marginTop={3}>
+              {/* Product Summary Section */}
+              <Typography variant="h6" marginTop={3}>
                 Comanda dumneavoastra:
               </Typography>
               {values.products.length > 0 ? (
                 <>
-                {values.products.map((product, index) => (
-                  <Typography variant="body1" key={index}>
-                    
-                    {`Produsul ${index + 1}: ${product.type} - Cantitatea: ${product.quantity} : Pretul ${product.quantity * product.price}`}
-                    
-                  </Typography>
-                ))}
-                           <Typography variant="h6" marginTop={2}>
-                    Total:  
+                  {values.products.map((product, index) => (
+                    <Typography variant="body1" key={index}>
+
+                      {`Produsul ${index + 1}: ${product.type} - Cantitatea: ${product.quantity} : Pretul ${product.quantity * product.price}`}
+
+                    </Typography>
+                  ))}
+                  <Typography variant="h6" marginTop={2}>
+                    Total:
                     {values.products.reduce((total, product) => {
                       return total + product.quantity * product.price;
                     }, 0)} RON
@@ -233,7 +261,7 @@ const App = () => {
                 <Typography variant="body1">Nu ati adaugat nici un produs.</Typography>
               )}
 
-           <Button
+              <Button
                 color="primary"
                 variant="contained"
                 fullWidth
@@ -243,9 +271,44 @@ const App = () => {
               >
                 Trimite comanda
               </Button>
-              </Form>
-            )}
-            </Formik>
+            </Form>
+          )}
+        </Formik>
+      </Grid>
+      </>
+      : <ThankYouMessage setIsOrderSent={setIsOrderSent} />}
+    </Grid>
+  );
+};
+
+
+const ThankYouMessage = ({ setIsOrderSent }) => {
+  const handleBackClick = () => {
+    setIsOrderSent(false);
+  };
+
+  return (
+    <Grid 
+      container 
+      direction="column" 
+      justifyContent="center" 
+      alignItems="center" 
+      spacing={2} 
+      style={{ height: '100vh' }}
+    >
+      <Grid item>
+        <Typography variant="h4" gutterBottom>
+          Iti multumim pentru comanda!
+        </Typography>
+      </Grid>
+      <Grid item>
+        <Button 
+          variant="contained" 
+          color="primary" 
+          onClick={handleBackClick}
+        >
+          Back
+        </Button>
       </Grid>
     </Grid>
   );
