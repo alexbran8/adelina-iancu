@@ -130,6 +130,7 @@ const App = () => {
                 error={touched.name && Boolean(errors.name)}
                 helperText={touched.name && errors.name}
                 margin="normal"
+                disabled={isSubmitting}
               />
               {/* Phone */}
               <TextField
@@ -143,6 +144,7 @@ const App = () => {
                 error={touched.phone && Boolean(errors.phone)}
                 helperText={touched.phone && errors.phone}
                 margin="normal"
+                disabled={isSubmitting}
               />
               {/* Email */}
               <TextField
@@ -156,6 +158,7 @@ const App = () => {
                 error={touched.email && Boolean(errors.email)}
                 helperText={touched.email && errors.email}
                 margin="normal"
+                disabled={isSubmitting}
               />
 
               <FormControl fullWidth margin="normal">
@@ -164,6 +167,7 @@ const App = () => {
                   value={selectedProductType}
                   onChange={(e) => setSelectedProductType(e.target.value)}
                   label="Produs"
+                  disabled={isSubmitting}
                 >
                   {productTypes.map((type, index) => (
                     <MenuItem key={index} value={type}>
@@ -187,6 +191,7 @@ const App = () => {
                     alert('Please select a product type.');
                   }
                 }}
+                disabled={isSubmitting}
                 startIcon={<AddIcon />}
                 style={{ marginBottom: '16px' }}
               >
@@ -221,6 +226,7 @@ const App = () => {
                                 errors.products?.[index]?.quantity
                               }
                               margin="normal"
+                              disabled={isSubmitting}
                             />
                           </Grid>
                           <Grid item xs={2} marginLeft={1}>
@@ -307,7 +313,7 @@ const ThankYouMessage = ({ setIsOrderSent }) => {
           color="primary" 
           onClick={handleBackClick}
         >
-          Back
+          Adauga o comanda noua
         </Button>
       </Grid>
     </Grid>
