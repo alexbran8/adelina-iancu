@@ -59,7 +59,9 @@ const App = () => {
 
   return (
     <Grid container spacing={2} justifyContent="center" padding={2} >
-      <Logo />
+      <Grid item padding={3}>
+        <Logo />
+      </Grid>
       { !isOrderSent ?
       <>
       <Grid item xs={12}>
@@ -120,9 +122,7 @@ const App = () => {
             setFieldValue,
             isValid
           }) => (
-
             <Form>
-
               <TextField
                 fullWidth
                 id="name"
