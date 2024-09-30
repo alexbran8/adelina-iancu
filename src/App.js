@@ -15,11 +15,14 @@ import {
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import {Logo} from "./Logo"
+import  "./App.css"
 
 const App = () => {
   const [selectedProductType, setSelectedProductType] = useState('');
   const [isOrderSent, setIsOrderSent] = useState(false)
 
+  // TODO: update to key/value
   const productTypes = [
     'COZONAC BABKA NUTELA SI NUCA',
     'COZONAC BABKA VANILIE SI MERE',
@@ -55,7 +58,8 @@ const App = () => {
   };
 
   return (
-    <Grid container spacing={2} justifyContent="center" padding={2}>
+    <Grid container spacing={2} justifyContent="center" padding={2} >
+      <Logo />
       { !isOrderSent ?
       <>
       <Grid item xs={12}>
@@ -94,6 +98,7 @@ const App = () => {
                 formData
               )
               .then((response) => {
+                setIsOrderSent(true)
               })
               .catch((error) => {
                 console.error('Error submitting form:', error);
@@ -101,7 +106,6 @@ const App = () => {
               })
               .finally(() => {
                 setSubmitting(false);
-                setIsOrderSent(true)
               });
           }}
         >
@@ -180,6 +184,7 @@ const App = () => {
               <Button
                 type="button"
                 variant="outlined"
+                fullWidth
                 onClick={() => {
                   if (selectedProductType) {
                     setFieldValue('products', [
@@ -205,7 +210,7 @@ const App = () => {
                       <div key={index}>
                         <Grid container alignItems={"center"} spacing={2}>
                           <Grid item xs={5}>
-                            <Typography variant="body1">Produsul {index + 1} ({product.type})</Typography>
+                            <Typography variant="body1">Produsul {index + 1} ({product.type}: {product.price + " RON"})</Typography>
                           </Grid>
                           <Grid item xs={4}>
                             <TextField
@@ -217,6 +222,12 @@ const App = () => {
                               value={product.quantity}
                               onChange={handleChange}
                               onBlur={handleBlur}
+                              InputProps={{
+                                inputProps: {
+                                  type: 'number',
+                                  min: 1, max: 25,
+                                },
+                              }}
                               error={
                                 touched.products?.[index]?.quantity &&
                                 Boolean(errors.products?.[index]?.quantity)
@@ -273,7 +284,7 @@ const App = () => {
                 fullWidth
                 type="submit"
                 disabled={isSubmitting || !isValid}
-                style={{ marginTop: '16px' }}
+                style={{ marginTop: '16px', marginBottom: '50px' }}
               >
                 Trimite comanda
               </Button>
