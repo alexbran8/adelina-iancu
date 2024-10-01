@@ -19,8 +19,7 @@ export const OrderList = ({ values, handleBlur, handleChange, isSubmitting, erro
                         <div key={index}>
                             <Grid container alignItems={"center"} spacing={2}>
                                 <Grid item size={5}>
-                                    <Typography variant="body1">Produsul {index + 1}:</Typography>
-                                    <Typography variant="body1">{product.type} ({product.price + " RON"})</Typography>
+                                    <Typography variant="body1">{index + 1}. {product.type} ({product.price + " RON"})</Typography>
                                 </Grid>
                                 <Grid item size={5}>
                                     <TextField
