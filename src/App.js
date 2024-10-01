@@ -176,6 +176,10 @@ const App = () => {
                         values={values}
                         isSubmitting={isSubmitting}
                         isValid={isValid}
+                        handleBlur={handleBlur} 
+                        handleChange={handleChange} 
+                        errors={errors} 
+                        touched={touched}
                       />
                     </Grid>
                   </Grid>
