@@ -45,14 +45,27 @@ export const OrderList = ({ values, handleBlur, handleChange, isSubmitting, erro
                                             touched.products?.[index]?.quantity &&
                                             errors.products?.[index]?.quantity
                                         }
+                                        sx={{
+                                            height: '56px', // Set a fixed height for the TextField
+                                            display: 'flex',
+                                            alignItems: 'center', // Center align text within the TextField
+                                        }}
                                         margin="normal"
                                         disabled={isSubmitting}
                                     />
                                 </Grid>
-                                <Grid item size={2} >
+                                <Grid item size={2} paddingTop={1}>
                                     <IconButton
                                         aria-label="remove product"
                                         onClick={() => remove(index)}
+                                        sx={{backgroundColor: 'lightgrey',   // Set background color to grey
+                                            color: 'red',              // Set icon color to red
+                                            borderRadius: '50%',       // Make it round
+                                            padding: '10px',           // Add padding to make the button rounder
+                                            '&:hover': {
+                                              backgroundColor: '#e0e0e0',  // Change background color on hover
+                                            }
+                                         }}
                                     >
                                         <RemoveIcon />
                                     </IconButton>
