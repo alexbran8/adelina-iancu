@@ -6,32 +6,32 @@ import {
 
 export const OrderSubmit = ({ values, isSubmitting, isValid }) => {
     return (
-      <Grid container direction={"column"} alignContent={"center"}>
-        <Grid item size="12">
-          <Typography variant="h6" marginTop={3}>
-            Comanda dumneavoastra:
+      <Grid container direction={"column"} alignItems={"center"} >
+        <Grid item size={12}>
+          <Typography variant="h6" marginTop={3} align='center' fontWeight="bold">
+            Comanda dumneavoastra
           </Typography>
           {values.products.length > 0 ? (
             <>
               {values.products.map((product, index) => ( //TODO: redesign to table
                 <Typography variant="body1" key={index}>
   
-                  {`Produsul ${index + 1}: ${product.type} - Cantitatea: ${product.quantity} : Pretul ${product.quantity * product.price}`}
+                  <b></b>{`${index + 1}.`} <b>{`${product.type} `}</b> {product.quantity && `- Cantitatea: ${product.quantity || 0} : Pretul ${product.quantity * product.price}`}
   
                 </Typography>
               ))}
-              <Typography variant="h6" marginTop={2}>
-                Total: 
+              <Typography variant="h6" marginTop={2} align="center">
+                <b>Total: </b>
                 {values.products.reduce((total, product) => {
                   return total + product.quantity * product.price;
                 }, 0)} RON
               </Typography>
             </>
           ) : (
-            <Typography variant="body1">Nu ati adaugat nici un produs.</Typography>
+            <Typography variant="body2" align="center">Nu ati adaugat nici un produs.</Typography>
           )}
         </Grid>
-        <Grid item size="6">
+        <Grid item size={6}>
           <Button
             color="primary"
             variant="contained"

@@ -10,8 +10,8 @@ import AddIcon from '@mui/icons-material/Add';
 
 export const AddProduct = ({ selectedProductType, setSelectedProductType, isSubmitting, productTypes, setFieldValue, values, defaultPrices }) => {
     return (
-        <Grid container direction={"column"} alignItems={"center"} justifyContent={"center"}>
-            <Grid item size={{ xs: 12 }}>
+        <Grid container direction={"column"} alignItems={"center"} >
+            <Grid item size={12} >
                 <FormControl fullWidth margin="normal">
                     <InputLabel>Produs</InputLabel>
                     <Select
@@ -28,7 +28,7 @@ export const AddProduct = ({ selectedProductType, setSelectedProductType, isSubm
                     </Select>
                 </FormControl>
             </Grid>
-            <Grid item size={{ xs: 6 }}>
+            <Grid item size={{ xs:12, md:8, lg:8 }}>
                 <Button
                     type="button"
                     variant="outlined"
@@ -43,7 +43,7 @@ export const AddProduct = ({ selectedProductType, setSelectedProductType, isSubm
                     startIcon={<AddIcon />}
                     fullWidth
                 >
-                    Adauga acest produs
+                    Adauga produs
                 </Button>
             </Grid>
         </Grid>

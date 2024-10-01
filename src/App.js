@@ -63,11 +63,11 @@ const App = () => {
       {!isOrderSent ?
         <>
           <Grid item size={12}>
-            <Typography variant="h4" align="center">
+            <Typography variant="h4" align="center" fontWeight="bold">
               Formular comanda
             </Typography>
           </Grid>
-          <Grid item size={{ xs: 12, sm: 8, md: 6, lg: 4 }}>
+          <Grid item size={{ xs: 12, sm: 8, md: 6, lg: 7, xl:4 }}>
             <Formik
               initialValues={{
                 name: '',
@@ -120,7 +120,7 @@ const App = () => {
               }) => (
                 <Form>
                   <Grid container alignContent={"center"} justifyContent={"center"}>
-                    <Grid item size={{ xs: 12, sm: 12, md: 12, lg: 12 }}>
+                    <Grid item size={{ xs: 12, sm: 12, md: 12, lg: 8 }}>
                       <TextField
                         fullWidth
                         id="name"
@@ -163,15 +163,15 @@ const App = () => {
                         disabled={isSubmitting}
                       />
                     </Grid>
-                    <Grid item size={{ xs: 12, sm: 12, md: 12, lg: 12 }}>
+                    <Grid item size={{ xs: 12, sm: 12, md: 12, lg: 8 }}>
                       <AddProduct selectedProductType={selectedProductType} setSelectedProductType={setSelectedProductType} isSubmitting={isSubmitting} productTypes={productTypes} setFieldValue={setFieldValue} values={values} defaultPrices={defaultPrices} />
                     </Grid>
-                    <Grid item size={{ xs: 12 }}>
+                    <Grid item size={12}>
                       <OrderList
                         values={values} handleBlur={handleBlur} handleChange={handleChange} isSubmitting={isSubmitting} errors={errors} touched={touched}
                       />
                     </Grid>
-                    <Grid item size={{ xs: 12 }}>
+                    <Grid item size={12}>
                       <OrderSubmit
                         values={values}
                         isSubmitting={isSubmitting}
