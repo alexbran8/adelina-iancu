@@ -13,7 +13,7 @@ export const OrderSubmit = ({ values, isSubmitting, isValid }) => {
           </Typography>
           {values.products.length > 0 ? (
             <>
-              {values.products.map((product, index) => (
+              {values.products.map((product, index) => ( //TODO: redesign to table
                 <Typography variant="body1" key={index}>
   
                   {`Produsul ${index + 1}: ${product.type} - Cantitatea: ${product.quantity} : Pretul ${product.quantity * product.price}`}
@@ -21,7 +21,7 @@ export const OrderSubmit = ({ values, isSubmitting, isValid }) => {
                 </Typography>
               ))}
               <Typography variant="h6" marginTop={2}>
-                Total:
+                Total: 
                 {values.products.reduce((total, product) => {
                   return total + product.quantity * product.price;
                 }, 0)} RON

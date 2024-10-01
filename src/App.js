@@ -137,7 +137,6 @@ const App = () => {
                         disabled={isSubmitting}
                         required
                       />
-                      {/* Phone */}
                       <TextField
                         fullWidth
                         id="phone"
@@ -152,7 +151,6 @@ const App = () => {
                         disabled={isSubmitting}
                         required
                       />
-                      {/* Email */}
                       <TextField
                         fullWidth
                         id="email"
@@ -188,7 +186,9 @@ const App = () => {
             </Formik>
           </Grid>
         </>
-        : <Grid item size={12}><ThankYouMessage setIsOrderSent={setIsOrderSent} /></Grid>}
+        : <Grid item size={12}>
+          <ThankYouMessage setIsOrderSent={setIsOrderSent} />
+        </Grid>}
     </Grid>
   );
 };
