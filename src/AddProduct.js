@@ -10,8 +10,8 @@ import AddIcon from '@mui/icons-material/Add';
 
 export const AddProduct = ({ selectedProductType, setSelectedProductType, isSubmitting, productTypes, setFieldValue, values, defaultPrices }) => {
     return (
-        <Grid container direction={"column"} alignContent={"center"} justifyContent={"center"}>
-            <Grid item size={{xs:12}}>
+        <Grid container direction={"column"} alignItems={"center"} justifyContent={"center"}>
+            <Grid item size={{ xs: 12 }}>
                 <FormControl fullWidth margin="normal">
                     <InputLabel>Produs</InputLabel>
                     <Select
@@ -28,24 +28,20 @@ export const AddProduct = ({ selectedProductType, setSelectedProductType, isSubm
                     </Select>
                 </FormControl>
             </Grid>
-            <Grid item size={{xs:12}}>
+            <Grid item size={{ xs: 6 }}>
                 <Button
                     type="button"
                     variant="outlined"
                     onClick={() => {
-                        if (selectedProductType) {
-                            setFieldValue('products', [
-                                ...values.products,
-                                { description: '', quantity: '', type: selectedProductType, price: defaultPrices[selectedProductType] },
-                            ]);
-                            setSelectedProductType('');
-                        } else {
-                            alert('Please select a product type.');
-                        }
+                        setFieldValue('products', [
+                            ...values.products,
+                            { description: '', quantity: '', type: selectedProductType, price: defaultPrices[selectedProductType] },
+                        ]);
+                        setSelectedProductType('');
                     }}
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || !selectedProductType}
                     startIcon={<AddIcon />}
-                    style={{ marginBottom: '16px' }}
+                    fullWidth
                 >
                     Adauga acest produs
                 </Button>

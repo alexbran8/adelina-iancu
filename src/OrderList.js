@@ -11,7 +11,7 @@ import {
 import RemoveIcon from '@mui/icons-material/Remove';
 
 export const OrderList = ({ values, handleBlur, handleChange, isSubmitting, errors, touched }) => {
-
+    console.log(errors)
     return (
         <FieldArray name="products">
             {({ remove }) => (
@@ -36,7 +36,7 @@ export const OrderList = ({ values, handleBlur, handleChange, isSubmitting, erro
                                         InputProps={{
                                             inputProps: {
                                                 type: 'number',
-                                                min: 1, max: 25,
+                                                min: 1
                                             },
                                         }}
                                         error={

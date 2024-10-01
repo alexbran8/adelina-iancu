@@ -78,7 +78,7 @@ const App = () => {
               validationSchema={Yup.object({
                 name: Yup.string().required('Required'),
                 phone: Yup.string().required('Required'),
-                email: Yup.string().email('Invalid email address').required('Required'),
+                email: Yup.string().email('Invalid email address'),
                 products: Yup.array().of(
                   Yup.object().shape({
                     quantity: Yup.number().positive().required('Required'),
@@ -86,7 +86,6 @@ const App = () => {
                 ).min(1, 'The error message if length === 0 | 1'),
               })}
               onSubmit={(values, { setSubmitting }) => {
-                console.log(values)
                 const formData = new FormData();
                 formData.append('name', values.name)
                 formData.append('phone', values.phone)
@@ -115,7 +114,6 @@ const App = () => {
                 touched,
                 handleChange,
                 handleBlur,
-                handleSubmit,
                 isSubmitting,
                 setFieldValue,
                 isValid
