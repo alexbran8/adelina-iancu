@@ -1,7 +1,6 @@
 import {
     Button,
-    Grid2 as Grid,
-    Typography
+    Grid2 as Grid
 } from '@mui/material';
 
 
