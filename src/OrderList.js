@@ -129,7 +129,7 @@ const MobileList = ({ values, isSubmitting, handleBlur, handleChange, errors, to
                                     disabled={isSubmitting}
                                 />
                             </Grid>
-                            <Grid item size={3}><b>Price:</b></Grid>
+                            <Grid item size={3}><b>Pret:</b></Grid>
                             <Grid item size={3}>{product.price} RON</Grid>
                             <Grid item xs={3}><b>Total:</b></Grid>
                             <Grid item xs={3}>{(product.quantity || 0) * product.price} RON</Grid>
