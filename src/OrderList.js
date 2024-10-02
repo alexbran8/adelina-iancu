@@ -88,7 +88,7 @@ const ProductTable = ({ values, isSubmitting, handleBlur, handleChange, errors, 
 
 const MobileList = ({ values, isSubmitting, handleBlur, handleChange, errors, touched, remove, total }) => {
     return (
-        <Grid container spacing={2} paddingTop={2}>
+        <Grid container spacing={2} paddingTop={2} justifyContent={"center"}>
             <Grid item size={12}>
                 <Typography variant="h6" marginTop={3} align='center' fontWeight="bold" borderBottom={0.5} borderColor={"lightGrey"}>
                     Comanda dumneavoastra
@@ -148,7 +148,7 @@ const MobileList = ({ values, isSubmitting, handleBlur, handleChange, errors, to
                 </Grid>
             ))}
             <Grid item xs={12}>
-                <Typography variant="h6" align="right"><b>Total:</b> {total} RON</Typography>
+                <Typography variant="h6"><b>Total:</b> {total} RON</Typography>
             </Grid>
         </Grid>
     )
