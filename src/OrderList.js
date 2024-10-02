@@ -33,7 +33,7 @@ export const OrderList = ({ values, handleBlur, handleChange, isSubmitting, erro
                             remove={remove}
                         />
                     ) : (
-                        <Typography variant="body2" align="center">Nu ati adaugat nici un produs.</Typography>
+                        <Typography variant="body2" align="center" paddingTop={2}>Nu ati adaugat nici un produs.</Typography>
                     )}
                 </>)}
         </FieldArray>
