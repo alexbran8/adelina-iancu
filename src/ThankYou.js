@@ -16,10 +16,10 @@ export const ThankYouMessage = ({ setIsOrderSent }) => {
         justifyContent="center"
         alignItems="center"
         spacing={2}
-        style={{ height: '100vh' }}
+        style={{ height: '60vh' }}
       >
         <Grid item>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom align='center'>
             Iti multumim pentru comanda!
           </Typography>
         </Grid>
