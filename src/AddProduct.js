@@ -28,7 +28,7 @@ export const AddProduct = ({ selectedProductType, setSelectedProductType, isSubm
                     </Select>
                 </FormControl>
             </Grid>
-            <Grid item size={{ xs:12, md:8, lg:8 }}>
+            <Grid item size={{ xs:12, md:8, lg:8 }} paddingTop={2}>
                 <Button
                     type="button"
                     variant="outlined"
@@ -43,7 +43,7 @@ export const AddProduct = ({ selectedProductType, setSelectedProductType, isSubm
                     startIcon={<AddIcon />}
                     fullWidth
                 >
-                    Adauga produs
+                    Adauga
                 </Button>
             </Grid>
         </Grid>
