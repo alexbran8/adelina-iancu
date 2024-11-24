@@ -91,7 +91,7 @@ const MobileList = ({ values, isSubmitting, handleBlur, handleChange, errors, to
         <Grid container spacing={2} paddingTop={2} justifyContent={"center"}>
             <Grid item size={12}>
                 <Typography variant="h6" marginTop={3} align='center' fontWeight="bold" borderBottom={0.5} borderColor={"lightGrey"}>
-                    Comanda dumneavoastra
+                    Comanda dumneavoastră
                 </Typography>
             </Grid>
             {values.products.map((product, index) => (
@@ -99,7 +99,8 @@ const MobileList = ({ values, isSubmitting, handleBlur, handleChange, errors, to
                     <Paper sx={{ padding: 2, marginBottom: 2 }}>
                         <Grid container spacing={1}>
                             <Grid item size={3}><b>#{index + 1}</b></Grid>
-                            <Grid item size={9}>{product.type}</Grid>
+                            <Grid item size={9}>{product.type}: {product.weight}
+                                </Grid>
                             <Grid item size={12}>
                                 <TextField
                                     fullWidth
@@ -129,7 +130,7 @@ const MobileList = ({ values, isSubmitting, handleBlur, handleChange, errors, to
                                     disabled={isSubmitting}
                                 />
                             </Grid>
-                            <Grid item size={3}><b>Pret:</b></Grid>
+                            <Grid item size={3}><b>Preț:</b></Grid>
                             <Grid item size={3}>{product.price} RON</Grid>
                             <Grid item xs={3}><b>Total:</b></Grid>
                             <Grid item xs={3}>{(product.quantity || 0) * product.price} RON</Grid>
@@ -140,7 +141,7 @@ const MobileList = ({ values, isSubmitting, handleBlur, handleChange, errors, to
                                     color="error"
                                     onClick={() => remove(index)}
                                 >
-                                    Sterge produsul
+                                    Șterge produsul
                                 </Button>
                             </Grid>
                         </Grid>
@@ -160,7 +161,7 @@ const DesktopList = ({ values, isSubmitting, handleBlur, handleChange, errors, t
         <TableContainer>
             <Grid item size={12}>
                 <Typography variant="h6" marginTop={3} align='center' fontWeight="bold">
-                    Comanda dumneavoastra
+                    Comanda dumneavoastră
                 </Typography>
             </Grid>
             <Table>
@@ -169,7 +170,7 @@ const DesktopList = ({ values, isSubmitting, handleBlur, handleChange, errors, t
                         <TableCell sx={{ padding: '4px' }}>#</TableCell>
                         <TableCell sx={{ padding: '4px' }}>Produs</TableCell>
                         <TableCell sx={{ padding: '4px' }}>Cantitate</TableCell>
-                        <TableCell sx={{ padding: '4px' }}>Pret</TableCell>
+                        <TableCell sx={{ padding: '4px' }}>Preț</TableCell>
                         <TableCell sx={{ padding: '4px' }}>Total</TableCell>
                         <TableCell sx={{ padding: '4px' }}></TableCell>
                     </TableRow>
@@ -178,7 +179,7 @@ const DesktopList = ({ values, isSubmitting, handleBlur, handleChange, errors, t
                     {values.products.map((product, index) => (
                         <TableRow key={index}>
                             <TableCell sx={{ padding: '4px' }}>{index + 1}</TableCell>
-                            <TableCell sx={{ padding: '4px' }}>{product.type}</TableCell>
+                            <TableCell sx={{ padding: '4px' }}>{product.type} - {product.weight}</TableCell>
                             <TableCell sx={{ padding: '4px' }}>
                                 <TextField
                                     id={`products.${index}.quantity`}

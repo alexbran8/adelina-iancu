@@ -20,25 +20,19 @@ const App = () => {
   const [selectedProductType, setSelectedProductType] = useState('');
   const [isOrderSent, setIsOrderSent] = useState(false)
 
-  // TODO: update to key/value
-  const productTypes = [
-    'PACHET MINI TRIO COZONACI',
-    'BABKA CIOCOLATA SI NUCA',
-    'BABKA MAC SI VISINE',
-    'BABKA MERE SI VANILIE',
-    'BABKA FISTIC SI ZMEURA',
-    'BABKA CARAMEL, MERE SI NUCI'  
-
+  const products = [
+    {
+      name:
+        'PACHET MINI TRIO COZONACI',
+      price: 200,
+      weight: '1,500 kg',
+    },
+    { name: 'BABKA CIOCOLATA SI NUCA', price: 100, weight: '1,300 kg' },
+    { name: 'BABKA MAC SI VISINE', price: 100, weight: '1,300 kg' },
+    { name: 'BABKA MERE SI VANILIE', price: 100, weight: '1,300 kg' },
+    { name: 'BABKA FISTIC SI ZMEURA', price: 120, weight: '1,300 kg' },
+    { name: 'BABKA CARAMEL, MERE SI NUCI', price: 120, weight: '1,300 kg' }
   ];
-
-  const defaultPrices = {
-    'PACHET MINI TRIO COZONACI': 200,
-    'BABKA CIOCOLATA SI NUCA':100,
-    'BABKA MAC SI VISINE':100,
-    'BABKA MERE SI VANILIE':100,
-    'BABKA FISTIC SI ZMEURA':120,
-    'BABKA CARAMEL, MERE SI NUCI':120
-  };
 
   return (
     <Grid container spacing={2} justifyContent="center" padding={2} >
@@ -52,13 +46,14 @@ const App = () => {
               Formular comanda
             </Typography>
           </Grid>
-          <Grid item size={{ xs: 12, sm: 8, md: 6, lg: 7, xl:4 }}>
+          <Grid item size={{ xs: 12, sm: 8, md: 6, lg: 7, xl: 4 }}>
             <Formik
               initialValues={{
                 name: '',
                 phone: '',
                 email: '',
-                products: []
+                products: [],
+                weight: ''
               }}
               validationSchema={Yup.object({
                 name: Yup.string().required('Necesar'),
@@ -134,7 +129,7 @@ const App = () => {
                         disabled={isSubmitting}
                         required
                       />
-                      <TextField
+                      {/* <TextField
                         fullWidth
                         id="email"
                         name="email"
@@ -146,10 +141,10 @@ const App = () => {
                         helperText={touched.email && errors.email}
                         margin="normal"
                         disabled={isSubmitting}
-                      />
+                      /> */}
                     </Grid>
                     <Grid item size={{ xs: 12, sm: 12, md: 12, lg: 8 }}>
-                      <AddProduct selectedProductType={selectedProductType} setSelectedProductType={setSelectedProductType} isSubmitting={isSubmitting} productTypes={productTypes} setFieldValue={setFieldValue} values={values} defaultPrices={defaultPrices} />
+                      <AddProduct selectedProductType={selectedProductType} setSelectedProductType={setSelectedProductType} isSubmitting={isSubmitting} products={products} setFieldValue={setFieldValue} values={values} />
                     </Grid>
                     <Grid item size={12}>
                       <OrderList
@@ -161,9 +156,9 @@ const App = () => {
                         values={values}
                         isSubmitting={isSubmitting}
                         isValid={isValid}
-                        handleBlur={handleBlur} 
-                        handleChange={handleChange} 
-                        errors={errors} 
+                        handleBlur={handleBlur}
+                        handleChange={handleChange}
+                        errors={errors}
                         touched={touched}
                       />
                     </Grid>

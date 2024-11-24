@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 
-export const AddProduct = ({ selectedProductType, setSelectedProductType, isSubmitting, productTypes, setFieldValue, values, defaultPrices }) => {
+export const AddProduct = ({ selectedProductType, setSelectedProductType, isSubmitting, products, setFieldValue, values }) => {
     return (
         <Grid container direction={"column"} alignItems={"center"} >
             <Grid item size={12} >
@@ -20,9 +20,9 @@ export const AddProduct = ({ selectedProductType, setSelectedProductType, isSubm
                         label="Produs"
                         disabled={isSubmitting}
                     >
-                        {productTypes.map((type, index) => (
-                            <MenuItem key={index} value={type}>
-                                {type}
+                        {products.map((product, index) => (
+                            <MenuItem key={index} value={product.name}>
+                                {product.name}
                             </MenuItem>
                         ))}
                     </Select>
@@ -35,7 +35,7 @@ export const AddProduct = ({ selectedProductType, setSelectedProductType, isSubm
                     onClick={() => {
                         setFieldValue('products', [
                             ...values.products,
-                            { description: '', quantity: '', type: selectedProductType, price: defaultPrices[selectedProductType] },
+                            { description: '', quantity: '', type: selectedProductType, price: products.find(product => product.name === selectedProductType)?.price, weight: products.find(product => product.name === selectedProductType)?.weight },
                         ]);
                         setSelectedProductType('');
                     }}
@@ -43,7 +43,7 @@ export const AddProduct = ({ selectedProductType, setSelectedProductType, isSubm
                     startIcon={<AddIcon />}
                     fullWidth
                 >
-                    Adauga
+                    Adaugă
                 </Button>
             </Grid>
         </Grid>
