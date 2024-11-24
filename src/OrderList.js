@@ -218,6 +218,7 @@ const DesktopList = ({ values, isSubmitting, handleBlur, handleChange, errors, t
                                 <IconButton
                                     aria-label="remove product"
                                     onClick={() => remove(index)}
+                                    disabled={isSubmitting}
                                     sx={{
                                         background: "lightgrey",
                                         color: 'red',
