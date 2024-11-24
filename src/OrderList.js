@@ -167,9 +167,9 @@ const DesktopList = ({ values, isSubmitting, handleBlur, handleChange, errors, t
                 <TableHead>
                     <TableRow>
                         <TableCell sx={{ padding: '4px' }}>#</TableCell>
-                        <TableCell sx={{ padding: '4px' }}>Type</TableCell>
-                        <TableCell sx={{ padding: '4px' }}>Quantity</TableCell>
-                        <TableCell sx={{ padding: '4px' }}>Price</TableCell>
+                        <TableCell sx={{ padding: '4px' }}>Produs</TableCell>
+                        <TableCell sx={{ padding: '4px' }}>Cantitate</TableCell>
+                        <TableCell sx={{ padding: '4px' }}>Pret</TableCell>
                         <TableCell sx={{ padding: '4px' }}>Total</TableCell>
                         <TableCell sx={{ padding: '4px' }}></TableCell>
                     </TableRow>
