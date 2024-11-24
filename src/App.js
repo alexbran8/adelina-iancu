@@ -22,37 +22,22 @@ const App = () => {
 
   // TODO: update to key/value
   const productTypes = [
-    'COZONAC BABKA NUTELA SI NUCA',
-    'COZONAC BABKA VANILIE SI MERE',
-    'COZONAC BABKA MAC SI VISINE',
-    'COZONAC BABKA FISTIC SI ZMEURA',
-    'COZONAC MAC',
-    'COZONAC NUCA',
-    'COZONAC RAHAT',
-    'PRAJITURA ASORTATA',
-    'FURSECURI',
-    'CARROT CAKE',
-    'PANETTONE',
-    'MINI BABKA',
-    'SARATELE',
-    'PASCA'
+    'PACHET MINI TRIO COZONACI',
+    'BABKA CIOCOLATA SI NUCA',
+    'BABKA MAC SI VISINE',
+    'BABKA MERE SI VANILIE',
+    'BABKA FISTIC SI ZMEURA',
+    'BABKA CARAMEL, MERE SI NUCI'  
+
   ];
 
   const defaultPrices = {
-    'COZONAC BABKA NUTELA SI NUCA': 100,
-    'COZONAC BABKA VANILIE SI MERE': 100,
-    'COZONAC BABKA MAC SI VISINE': 100,
-    'COZONAC BABKA FISTIC SI ZMEURA': 120,
-    'COZONAC MAC': 70,
-    'COZONAC NUCA': 70,
-    'COZONAC RAHAT': 70,
-    'PRAJITURA ASORTATA': 100,
-    'FURSECURI': 90,
-    'CARROT CAKE': 200,
-    'PANETTONE': 120,
-    'MINI BABKA': 60,
-    'SARATELE': 70,
-    'PASCA': 80
+    'PACHET MINI TRIO COZONACI': 200,
+    'BABKA CIOCOLATA SI NUCA':100,
+    'BABKA MAC SI VISINE':100,
+    'BABKA MERE SI VANILIE':100,
+    'BABKA FISTIC SI ZMEURA':120,
+    'BABKA CARAMEL, MERE SI NUCI':120
   };
 
   return (
@@ -76,8 +61,8 @@ const App = () => {
                 products: []
               }}
               validationSchema={Yup.object({
-                name: Yup.string().required('Required'),
-                phone: Yup.string().required('Required'),
+                name: Yup.string().required('Necesar'),
+                phone: Yup.string().required('Necesar'),
                 email: Yup.string().email('Invalid email address'),
                 products: Yup.array().of(
                   Yup.object().shape({
