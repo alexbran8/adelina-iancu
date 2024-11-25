@@ -140,7 +140,7 @@ const MobileList = ({ values, isSubmitting, handleBlur, handleChange, errors, to
                                     variant="outlined"
                                     color="error"
                                     onClick={() => remove(index)}
-                                    disabled={isSubmiting}
+                                    disabled={isSubmitting}
                                 >
                                     Șterge produsul
                                 </Button>
