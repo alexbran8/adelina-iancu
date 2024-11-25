@@ -43,7 +43,7 @@ const App = () => {
         <>
           <Grid item size={12}>
             <Typography variant="h4" align="center" fontWeight="bold">
-              Formular comanda
+              Formular comandă
             </Typography>
           </Grid>
           <Grid item size={{ xs: 12, sm: 8, md: 6, lg: 7, xl: 4 }}>
@@ -56,9 +56,9 @@ const App = () => {
                 weight: ''
               }}
               validationSchema={Yup.object({
-                name: Yup.string().required('Necesar'),
-                phone: Yup.string().required('Necesar'),
-                email: Yup.string().email('Invalid email address'),
+                name: Yup.string().required('Este necesară completarea acestui câmp'),
+                phone: Yup.string().required('Este necesară completarea acestui câmp'),
+                email: Yup.string().email('Adresă de e-mail invalidă'),
                 products: Yup.array().of(
                   Yup.object().shape({
                     quantity: Yup.number().positive().required('Required'),
@@ -105,7 +105,7 @@ const App = () => {
                         fullWidth
                         id="name"
                         name="name"
-                        label="Nume si prenume"
+                        label="Nume și prenume"
                         value={values.name}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -119,7 +119,7 @@ const App = () => {
                         fullWidth
                         id="phone"
                         name="phone"
-                        label="Numar telefon"
+                        label="Număr telefon"
                         value={values.phone}
                         onChange={handleChange}
                         onBlur={handleBlur}
