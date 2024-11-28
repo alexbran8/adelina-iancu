@@ -17,6 +17,16 @@ import {
     Button
 } from '@mui/material';
 import RemoveIcon from '@mui/icons-material/Remove';
+import { styled } from '@mui/system';
+
+const StyledTextField = styled(TextField)({
+    '& input[type=number]::-webkit-inner-spin-button, & input[type=number]::-webkit-outer-spin-button': {
+      opacity: 1, // Ensure the spinner is always visible
+    },
+    '& input[type=number]': {
+      '-moz-appearance': 'textfield', // For Firefox, disable hiding of buttons
+    },
+  });
 
 export const OrderList = ({ values, handleBlur, handleChange, isSubmitting, errors, touched }) => {
     return (
@@ -182,7 +192,7 @@ const DesktopList = ({ values, isSubmitting, handleBlur, handleChange, errors, t
                             <TableCell sx={{ padding: '4px' }}>{index + 1}</TableCell>
                             <TableCell sx={{ padding: '4px' }}>{product.type} - {product.weight}</TableCell>
                             <TableCell sx={{ padding: '4px' }}>
-                                <TextField
+                                <StyledTextField
                                     id={`products.${index}.quantity`}
                                     name={`products.${index}.quantity`}
                                     label="Catitatea"
