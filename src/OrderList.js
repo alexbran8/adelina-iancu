@@ -21,12 +21,12 @@ import { styled } from '@mui/system';
 
 const StyledTextField = styled(TextField)({
     '& input[type=number]::-webkit-inner-spin-button, & input[type=number]::-webkit-outer-spin-button': {
-      opacity: 1, // Ensure the spinner is always visible
+        opacity: 1, // Ensure the spinner is always visible
     },
     '& input[type=number]': {
-      '-moz-appearance': 'textfield', // For Firefox, disable hiding of buttons
+        '-moz-appearance': 'textfield', // For Firefox, disable hiding of buttons
     },
-  });
+});
 
 export const OrderList = ({ values, handleBlur, handleChange, isSubmitting, errors, touched }) => {
     return (
@@ -110,9 +110,21 @@ const MobileList = ({ values, isSubmitting, handleBlur, handleChange, errors, to
                         <Grid container spacing={1}>
                             <Grid item size={3}><b>#{index + 1}</b></Grid>
                             <Grid item size={9}>{product.type}: {product.weight}
-                                </Grid>
+                            </Grid>
+                            <Grid>
+                                <img
+                                src={`/products/${product.imageUrl}`}
+                                alt={product.name}
+                                style={{
+                                    width: 300,
+                                    height: 300,
+                                    objectFit: 'contain',
+                                    marginRight: '10px',
+                                    borderRadius: '4px',
+                                }}
+                            /></Grid>
                             <Grid item size={12}>
-                                <TextField
+                                <StyledTextField
                                     fullWidth
                                     id={`products.${index}.quantity`}
                                     name={`products.${index}.quantity`}
@@ -179,7 +191,7 @@ const DesktopList = ({ values, isSubmitting, handleBlur, handleChange, errors, t
                 <TableHead>
                     <TableRow>
                         <TableCell sx={{ padding: '4px' }}>#</TableCell>
-                        <TableCell sx={{ padding: '4px' }}>Produs</TableCell>
+                        <TableCell  colSpan={2} sx={{ padding: '4px' }}>Produs</TableCell>
                         <TableCell sx={{ padding: '4px' }}>Cantitate</TableCell>
                         <TableCell sx={{ padding: '4px' }}>Preț</TableCell>
                         <TableCell sx={{ padding: '4px' }}>Total</TableCell>
@@ -190,6 +202,19 @@ const DesktopList = ({ values, isSubmitting, handleBlur, handleChange, errors, t
                     {values.products.map((product, index) => (
                         <TableRow key={index}>
                             <TableCell sx={{ padding: '4px' }}>{index + 1}</TableCell>
+                            <TableCell sx={{ padding: '4px' }}>
+                            <img
+                                src={`/products/${product.imageUrl}`}
+                                alt={product.name}
+                                style={{
+                                    width: 50,
+                                    height: 50,
+                                    objectFit: 'cover',
+                                    marginRight: '10px',
+                                    borderRadius: '4px',
+                                }}
+                            />
+                            </TableCell>
                             <TableCell sx={{ padding: '4px' }}>{product.type} - {product.weight}</TableCell>
                             <TableCell sx={{ padding: '4px' }}>
                                 <StyledTextField
