@@ -195,7 +195,6 @@ const DesktopList = ({ values, isSubmitting, handleBlur, handleChange, errors, t
                                 <StyledTextField
                                     id={`products.${index}.quantity`}
                                     name={`products.${index}.quantity`}
-                                    label="Catitatea"
                                     type="number"
                                     value={product.quantity}
                                     onChange={handleChange}
