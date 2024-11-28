@@ -22,7 +22,7 @@ export const AddProduct = ({ selectedProductType, setSelectedProductType, isSubm
                     >
                         {products.map((product, index) => (
                             <MenuItem key={index} value={product.name}>
-                            {`${product.name} (${product.content ?? product.weight})`}                            </MenuItem>
+                            {`${product.name} (${product.content ?? product.weight} - ${product.price} RON)`}                            </MenuItem>
                         ))}
                     </Select>
                 </FormControl>
@@ -34,7 +34,7 @@ export const AddProduct = ({ selectedProductType, setSelectedProductType, isSubm
                     onClick={() => {
                         setFieldValue('products', [
                             ...values.products,
-                            { description: '', quantity: '', type: selectedProductType, price: products.find(product => product.name === selectedProductType)?.price, weight: products.find(product => product.name === selectedProductType)?.weight },
+                            { description: '', quantity: 1, type: selectedProductType, price: products.find(product => product.name === selectedProductType)?.price, weight: products.find(product => product.name === selectedProductType)?.weight },
                         ]);
                         setSelectedProductType('');
                     }}
