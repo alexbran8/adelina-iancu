@@ -22,8 +22,7 @@ export const AddProduct = ({ selectedProductType, setSelectedProductType, isSubm
                     >
                         {products.map((product, index) => (
                             <MenuItem key={index} value={product.name}>
-                                {product.name}
-                            </MenuItem>
+                            {`${product.name} (${product.content ?? product.weight})`}                            </MenuItem>
                         ))}
                     </Select>
                 </FormControl>

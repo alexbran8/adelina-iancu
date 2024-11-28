@@ -23,15 +23,25 @@ const App = () => {
   const products = [
     {
       name:
-        'PACHET MINI TRIO COZONACI',
-      price: 200,
-      weight: '1,500 kg',
+        'MINI BABKA',
+      price: 60,
+      weight: '0,500 kg',
     },
     { name: 'BABKA CIOCOLATA SI NUCA', price: 100, weight: '1,300 kg' },
     { name: 'BABKA MAC SI VISINE', price: 100, weight: '1,300 kg' },
     { name: 'BABKA MERE SI VANILIE', price: 100, weight: '1,300 kg' },
     { name: 'BABKA FISTIC SI ZMEURA', price: 120, weight: '1,300 kg' },
-    { name: 'BABKA CARAMEL, MERE SI NUCI', price: 120, weight: '1,300 kg' }
+    { name: 'BABKA CARAMEL, MERE SI NUCI', price: 120, weight: '1,300 kg' },
+    { name: 'PACHET CRACIUN', price: 100, content: 'vin Bianco Vila Veche 1l, 200g nuci, minibabka ciocolata si nuca 300g' },
+    { name: 'FURSECURI', price: 50, weight: '0,500 kg' },
+    { name: 'SARATELE', price: 70, weight: '1,000 kg' },
+    { name: 'PRAJITURI ASORTATE', price: 100, weight: '1,000 kg' },
+    { name: 'MOUSE CU CIOCOLATA SI FILING DE ALUNE', price: 120, weight: '1,000 kg' },
+    { name: 'MOUSE DE FISTIC CU SOS DE ZMEURA', price: 120, weight: '1,000 kg' },
+    { name: 'MOUSE DE CARAMEL CU INSERTIE DE CAFEA', price: 120, weight: '1,000 kg' },
+    { name: 'MOUSE DULCE DE MECHE SI MERE CARAMELIZATE', price: 120, weight: '1,000 kg' },
+    { name: 'MOUSE CU PORTOCALE SI MASCARPONE', price: 120, weight: '1,000 kg' },
+    { name: 'XMAS CAKE', price: 260, weight: '2,000 kg' },
   ];
 
   return (
