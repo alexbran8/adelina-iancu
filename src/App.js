@@ -36,11 +36,11 @@ const App = () => {
     { name: 'FURSECURI', price: 50, weight: '0,500 kg' },
     { name: 'SARATELE', price: 70, weight: '1,000 kg' },
     { name: 'PRAJITURI ASORTATE', price: 100, weight: '1,000 kg' },
-    { name: 'MOUSE CU CIOCOLATA SI FILING DE ALUNE', price: 120, weight: '1,000 kg' },
-    { name: 'MOUSE DE FISTIC CU SOS DE ZMEURA', price: 120, weight: '1,000 kg' },
-    { name: 'MOUSE DE CARAMEL CU INSERTIE DE CAFEA', price: 120, weight: '1,000 kg' },
-    { name: 'MOUSE DULCE DE MECHE SI MERE CARAMELIZATE', price: 120, weight: '1,000 kg' },
-    { name: 'MOUSE CU PORTOCALE SI MASCARPONE', price: 120, weight: '1,000 kg' },
+    { name: 'MOUSSE CU CIOCOLATA SI FILING DE ALUNE', price: 120, weight: '1,000 kg' },
+    { name: 'MOUSSE DE FISTIC CU SOS DE ZMEURA', price: 120, weight: '1,000 kg' },
+    { name: 'MOUSSE DE CARAMEL CU INSERTIE DE CAFEA', price: 120, weight: '1,000 kg' },
+    { name: 'MOUSSE DULCE DE LECHE SI MERE CARAMELIZATE', price: 120, weight: '1,000 kg' },
+    { name: 'MOUSSE PORTOCALE SI MASCARPONE', price: 120, weight: '1,000 kg' },
     { name: 'XMAS CAKE', price: 260, weight: '2,000 kg' },
   ];
 
