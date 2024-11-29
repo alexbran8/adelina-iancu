@@ -22,6 +22,7 @@ const App = () => {
 
   const products = [
     {
+      id: 0,
       name:
         'MINI BABKA',
       price: 60,
@@ -86,7 +87,7 @@ const App = () => {
                 formData.append('products', JSON.stringify(values.products));
                 axios
                   .post(
-                    'https://script.google.com/macros/s/AKfycbxwXtFF5cB9Oxqotb_70WfDU2VE4HlgWmxI1zfgajNbM3FyhbxvLr4HJVuG7bCXOGcM/exec',
+                    'https://script.google.com/macros/s/AKfycbwgVC-jQ2Nn9SX_uuVZWfYflohm6XH5NzAEbaHYYRpfyNbeBT5OWOEgxdSwpl5c0zOL/exec',
                     formData
                   )
                   .then((response) => {
