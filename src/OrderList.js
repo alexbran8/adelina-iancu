@@ -95,6 +95,20 @@ const ProductTable = ({ values, isSubmitting, handleBlur, handleChange, errors, 
     )
 };
 
+const spinnerStyles = {
+    "-webkit-appearance": "none",
+    background:
+      "#020 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAcCAYAAADr9QYhAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAI6ADAAQAAAABAAAAHAAAAACbzWzwAAABB0lEQVRIDe2XMQ6DMAxFf6suwAjszLDCTeASHALEyFlg5hLsXIJDtPIQVFkkgrhDVCWLcQzJ84/liEeSJG84MIqiwMMVmCAI8HRAlAPBwxxSsIf/VKZpGozjiCiKWL7X3Z8oQyB1XSPLMnRdZw0khlEgKn8JkAiGg0iBrJse1UZZlmr/U7vvO7ZtO43xSWp61jB8ManvO7BJQVEBmxa2iXkYnWpOKfPSUV6Zb9sWaZpqX12WBeu6auM8IOozBNL3/SnQNE2Y55nvp/XFfYY67DAMIPs97oKob8U1w4FsQQhIdEwqI7J0ZFVVgerEZvi7yaSauGZMi9+NOQMThqEbP3FxHCPPc3wAmdpEetL9b2QAAAAASUVORK5CYII=) no-repeat center center",
+    width: "2em",
+    opacity: 1,
+    position: "absolute",
+    top: 0,
+    right: 0,
+    bottom: 0,
+    overflow: "hidden",
+    borderTopRightRadius: "0.25rem",
+    borderBottomRightRadius: "0.25rem"
+  };
 
 const MobileList = ({ values, isSubmitting, handleBlur, handleChange, errors, touched, remove, total }) => {
     return (
@@ -151,7 +165,14 @@ const MobileList = ({ values, isSubmitting, handleBlur, handleChange, errors, to
                                         touched.products?.[index]?.quantity &&
                                         errors.products?.[index]?.quantity
                                     }
-                                    sx={{ marginBottom: 1 }}
+                                    sx={{ marginBottom: 1,
+                                        "input[type=number]::-webkit-outer-spin-button": {
+                                            ...spinnerStyles
+                                          },
+                                          "input[type=number]::-webkit-inner-spin-button": {
+                                            ...spinnerStyles
+                                          }
+                                     }}
                                     margin="normal"
                                     disabled={isSubmitting}
                                 />
