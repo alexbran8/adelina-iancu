@@ -47,7 +47,16 @@ export const AddProduct = ({ selectedProductType, setSelectedProductType, isSubm
                                                 flex: '1 1 auto',
                                             }}
                                         >
-                                            <b>{`${product.name}`}</b> ({product.content ?? product.weight} - <b>{product.price} RON</b>)
+                                            <b>{`${product.name}`}</b> ({product.weight ? `${product.weight} - ` : ""}<b>{product.price} RON</b>)
+                                        </span>
+                                        <span
+                                            style={{
+                                                wordBreak: 'break-word',
+                                                whiteSpace: 'normal',
+                                                flex: '1 1 auto',
+                                            }}
+                                        >
+                                        {product.content}
                                         </span>
                                     </div>
                                 </div>

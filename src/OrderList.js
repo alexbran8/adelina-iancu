@@ -125,7 +125,7 @@ const MobileList = ({ values, isSubmitting, handleBlur, handleChange, errors, to
                     <Paper sx={{ padding: 2, marginBottom: 2 }}>
                         <Grid container spacing={1}>
                         <Grid container spacing={1} justifyContent="center" alignItems="center" sx={{ marginTop: 1 }}>
-                            <Grid item size={1}><b>#{index + 1}</b></Grid>
+                            <Grid item size={2}><b>{index + 1}</b></Grid>
                             <Grid item size={3}>
                                 <img
                                     src={`/products/${product.imageUrl}`}
