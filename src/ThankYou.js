@@ -46,13 +46,13 @@ export const ThankYouMessage = ({ setIsOrderSent }) => {
             </Typography>
             <Typography variant="body1">
               <strong>Program ridicare:</strong>
-              <ul style={{ paddingLeft: 30, marginTop: 0 }}>
+              <ul style={{ paddingLeft: 40, marginTop: 2 }}>
                 <li>
-                  <b>20-23 Decembrie:</b> 09:00-19:00
+                  <b>20 - 23 Decembrie:</b> 09:00 - 19:00
                 </li>
                 <li
                 >
-                  <b>24 Decembrie:</b> 09:00-15:00
+                  <b>24 Decembrie:</b> 09:00 - 15:00
                 </li>
               </ul>
             </Typography>
