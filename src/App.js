@@ -24,7 +24,7 @@ const App = () => {
     {
       id: 16,
       name:
-        'MINI BABKA',
+        'MINI BABKA CIOCOLATĂ ȘI NUCĂ',
       price: 60,
       weight: '0,500 kg',
       imageUrl:'MINI-BABKA.jpg'
@@ -37,12 +37,8 @@ const App = () => {
     { id:6, name: 'PACHET CRĂCIUN', price: 100, content: 'vin Bianco Vila Veche 1l, 200g nuci, minibabka ciocolata si nuca 300g', imageUrl:'PACHET_CRACIUN.jpg' },
     { id:7, name: 'FURSECURI', price: 50, weight: '0,500 kg', imageUrl:'FURSECURI.jpg' },
     { id:8, name: 'SĂRĂȚELE', price: 70, weight: '1,000 kg', imageUrl:'SARATELE.jpg' },
-    { id:9, name: 'PRĂJITURI ASORTATE', price: 100, weight: '1,000 kg', imageUrl:'PRAJITURI_ASORTATE.jpg' },
-    { id:10, name: 'MOUSSE CU CIOCOLATĂ ȘI FILING DE ALUNE', price: 120, weight: '1,000 kg',imageUrl:'MOUSSE.jpg' },
-    { id:11, name: 'MOUSSE DE FISTIC CU SOS DE ZMEURĂ', price: 120, weight: '1,000 kg',imageUrl:'MOUSSE.jpg' },
-    { id:12, name: 'MOUSSE DE CARAMEL CU INSERȚIE DE CAFEA', price: 120, weight: '1,000 kg', imageUrl:'MOUSSE.jpg' },
-    { id:13, name: 'MOUSSE DULCE DE LECHE ȘI MERE CARAMELIZATE', price: 120, weight: '1,000 kg', imageUrl:'MOUSSE.jpg' },
-    { id:14, name: 'MOUSSE PORTOCALE ȘI MASCARPONE', price: 120, weight: '1,000 kg', imageUrl:'MOUSSE.jpg' },
+    { id:9, name: 'PRĂJITURI ASORTATE', price: 100, weight: '1,000 kg', imageUrl:'PRAJITURI_ASORTATE.jpg', content: 'Snickers, Kinder, Nes, Amandină, Fructe, Dulcinea' },
+    { id:10, name: 'MOUSSE-URI', price: 120, weight: '1,000 kg',imageUrl:'MOUSSE.jpg', content: 'Ciocolată și filling de alune, fistic cu sos de zmeură, caramel cu inserție de cafea, dulce de leche și mere caramelizate, portocale și mascarpone' },
     { id:15, name: 'XMAS CAKE', price: 260, weight: '2,000 kg', imageUrl:'XMAS-CAKE.jpg' },
   ];
 
