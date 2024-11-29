@@ -22,7 +22,7 @@ const App = () => {
 
   const products = [
     {
-      id: 0,
+      id: 16,
       name:
         'MINI BABKA',
       price: 60,
