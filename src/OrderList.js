@@ -104,7 +104,7 @@ const MobileList = ({ values, isSubmitting, handleBlur, handleChange, errors, to
         updatedProducts[index].quantity = (updatedProducts[index].quantity || 0) + 1;
         setFieldValue(`products.${index}.quantity`, updatedProducts[index].quantity);
     };
-    
+
     const handleDecrement = (index) => {
         const updatedProducts = [...values.products];
         if (updatedProducts[index].quantity > 1) {
@@ -124,6 +124,7 @@ const MobileList = ({ values, isSubmitting, handleBlur, handleChange, errors, to
                 <Grid item xs={12} key={index}>
                     <Paper sx={{ padding: 2, marginBottom: 2 }}>
                         <Grid container spacing={1}>
+                        <Grid container spacing={1} justifyContent="center" alignItems="center" sx={{ marginTop: 1 }}>
                             <Grid item size={1}><b>#{index + 1}</b></Grid>
                             <Grid item size={3}>
                                 <img
@@ -138,78 +139,78 @@ const MobileList = ({ values, isSubmitting, handleBlur, handleChange, errors, to
                                 />
                             </Grid>
                             <Grid item size={8}>
-                                {product.type}: {product.weight ?? product.content}
+                                <b>{product.type}:</b> {product.weight ?? product.content}
+                            </Grid>
                             </Grid>
                             <Grid item size={12}>
-                                <TextField
-                                    fullWidth
-                                    id={`products.${index}.quantity`}
-                                    name={`products.${index}.quantity`}
-                                    label="Cantitatea"
-                                    type="number"
-                                    value={product.quantity}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    InputProps={{
-                                        inputProps: {
-                                            type: 'number',
-                                            min: 1
-                                        },
-                                    }}
-                                    error={
-                                        touched.products?.[index]?.quantity &&
-                                        Boolean(errors.products?.[index]?.quantity)
-                                    }
-                                    helperText={
-                                        touched.products?.[index]?.quantity &&
-                                        errors.products?.[index]?.quantity
-                                    }
-                                    sx={{ marginBottom: 1 }}
-                                    margin="normal"
-                                    disabled={isSubmitting}
-                                />
-                            </Grid>
-                            <Grid item size={12}>
-                            <Grid container spacing={1} justifyContent="center" sx={{ marginTop: 1 }}>
-                                <Grid item size={6}>
-                                    <Button
-                                        type="button"
-                                        onClick={() => handleIncrement(index)}
-                                        disabled={isSubmitting}
-                                        style={{
-                                            width: '100%',
-                                            padding: '1rem',
-                                            fontSize: '1rem',
-                                            backgroundColor: '#4caf50',
-                                            color: '#fff',
-                                            border: 'none',
-                                            borderRadius: '4px',
-                                            cursor: 'pointer',
-                                        }}
-                                    >
-                                        +
-                                    </Button>
+                                <Grid container spacing={1} justifyContent="center" alignItems="center" sx={{ marginTop: 1 }}>
+                                    <Grid item size={6}>
+                                        <Button
+                                            type="button"
+                                            onClick={() => handleDecrement(index)}
+                                            disabled={isSubmitting || product.quantity <= 1}
+                                            style={{
+                                                width: '100%',
+                                                // padding: '1rem',
+                                                fontSize: '1rem',
+                                                backgroundColor: '#f44336',
+                                                color: '#fff',
+                                                border: 'none',
+                                                borderRadius: '4px',
+                                                cursor: 'pointer',
+                                            }}
+                                        >
+                                            -
+                                        </Button>
+                                    </Grid>
+                                    <Grid item size={3}>
+                                        <TextField
+                                            id={`products.${index}.quantity`}
+                                            name={`products.${index}.quantity`}
+                                            label="Cantitatea"
+                                            type="number"
+                                            value={product.quantity}
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
+                                            InputProps={{
+                                                inputProps: {
+                                                    type: 'number',
+                                                    min: 1
+                                                },
+                                            }}
+                                            error={
+                                                touched.products?.[index]?.quantity &&
+                                                Boolean(errors.products?.[index]?.quantity)
+                                            }
+                                            helperText={
+                                                touched.products?.[index]?.quantity &&
+                                                errors.products?.[index]?.quantity
+                                            }
+                                            sx={{ marginBottom: 1 }}
+                                            margin="normal"
+                                            disabled={isSubmitting}
+                                        />
+                                    </Grid>
+                                    <Grid item size={6}>
+                                        <Button
+                                            type="button"
+                                            onClick={() => handleIncrement(index)}
+                                            disabled={isSubmitting}
+                                            style={{
+                                                width: '100%',
+                                                // padding: '1rem',
+                                                fontSize: '1rem',
+                                                backgroundColor: '#4caf50',
+                                                color: '#fff',
+                                                border: 'none',
+                                                borderRadius: '4px',
+                                                cursor: 'pointer',
+                                            }}
+                                        >
+                                            +
+                                        </Button>
+                                    </Grid>
                                 </Grid>
-                                <Grid item size={6}>
-                                    <Button
-                                        type="button"
-                                        onClick={() => handleDecrement(index)}
-                                        disabled={isSubmitting || product.quantity <= 1}
-                                        style={{
-                                            width: '100%',
-                                            padding: '1rem',
-                                            fontSize: '1rem',
-                                            backgroundColor: '#f44336',
-                                            color: '#fff',
-                                            border: 'none',
-                                            borderRadius: '4px',
-                                            cursor: 'pointer',
-                                        }}
-                                    >
-                                        -
-                                    </Button>
-                                </Grid>
-                            </Grid>
                             </Grid>
                             <Grid item size={3}><b>Preț:</b></Grid>
                             <Grid item size={3}>{product.price} RON</Grid>
