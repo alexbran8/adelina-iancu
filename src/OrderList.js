@@ -151,10 +151,7 @@ const MobileList = ({ values, isSubmitting, handleBlur, handleChange, errors, to
                                     InputProps={{
                                         inputProps: {
                                             type: 'number',
-                                            min: 1,
-                                            onKeyDown: (event) => {
-                                                event.preventDefault();
-                                             },
+                                            min: 1
                                         },
                                     }}
                                     error={
