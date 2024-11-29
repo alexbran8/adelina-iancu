@@ -28,21 +28,21 @@ const App = () => {
       weight: '0,500 kg',
       imageUrl:'MINI-BABKA.jpg'
     },
-    { name: 'BABKA CIOCOLATA SI NUCA', price: 100, weight: '1,300 kg',imageUrl:'BABKA.jpg' },
-    { name: 'BABKA MAC SI VISINE', price: 100, weight: '1,300 kg',imageUrl:'BABKA.jpg' },
-    { name: 'BABKA MERE SI VANILIE', price: 100, weight: '1,300 kg', imageUrl:'BABKA.jpg' },
-    { name: 'BABKA FISTIC SI ZMEURA', price: 120, weight: '1,300 kg', imageUrl:'BABKA.jpg' },
-    { name: 'BABKA CARAMEL, MERE SI NUCI', price: 120, weight: '1,300 kg', imageUrl:'BABKA.jpg' },
-    { name: 'PACHET CRACIUN', price: 100, content: 'vin Bianco Vila Veche 1l, 200g nuci, minibabka ciocolata si nuca 300g', imageUrl:'PACHET_CRACIUN.jpg' },
-    { name: 'FURSECURI', price: 50, weight: '0,500 kg', imageUrl:'FURSECURI.jpg' },
-    { name: 'SARATELE', price: 70, weight: '1,000 kg', imageUrl:'SARATELE.jpg' },
-    { name: 'PRAJITURI ASORTATE', price: 100, weight: '1,000 kg', imageUrl:'PRAJITURI_ASORTATE.jpg' },
-    { name: 'MOUSSE CU CIOCOLATA SI FILING DE ALUNE', price: 120, weight: '1,000 kg',imageUrl:'MOUSSE.jpg' },
-    { name: 'MOUSSE DE FISTIC CU SOS DE ZMEURA', price: 120, weight: '1,000 kg',imageUrl:'MOUSSE.jpg' },
-    { name: 'MOUSSE DE CARAMEL CU INSERTIE DE CAFEA', price: 120, weight: '1,000 kg', imageUrl:'MOUSSE.jpg' },
-    { name: 'MOUSSE DULCE DE LECHE SI MERE CARAMELIZATE', price: 120, weight: '1,000 kg', imageUrl:'MOUSSE.jpg' },
-    { name: 'MOUSSE PORTOCALE SI MASCARPONE', price: 120, weight: '1,000 kg', imageUrl:'MOUSSE.jpg' },
-    { name: 'XMAS CAKE', price: 260, weight: '2,000 kg', imageUrl:'XMAS-CAKE.jpg' },
+    { id:1, name: 'BABKA CIOCOLATA SI NUCA', price: 100, weight: '1,300 kg',imageUrl:'BABKA.jpg' },
+    { id:2, name: 'BABKA MAC SI VISINE', price: 100, weight: '1,300 kg',imageUrl:'BABKA.jpg' },
+    { id:3, name: 'BABKA MERE SI VANILIE', price: 100, weight: '1,300 kg', imageUrl:'BABKA.jpg' },
+    { id:4, name: 'BABKA FISTIC SI ZMEURA', price: 120, weight: '1,300 kg', imageUrl:'BABKA.jpg' },
+    { id:5, name: 'BABKA CARAMEL, MERE SI NUCI', price: 120, weight: '1,300 kg', imageUrl:'BABKA.jpg' },
+    { id:6, name: 'PACHET CRACIUN', price: 100, content: 'vin Bianco Vila Veche 1l, 200g nuci, minibabka ciocolata si nuca 300g', imageUrl:'PACHET_CRACIUN.jpg' },
+    { id:7, name: 'FURSECURI', price: 50, weight: '0,500 kg', imageUrl:'FURSECURI.jpg' },
+    { id:8, name: 'SARATELE', price: 70, weight: '1,000 kg', imageUrl:'SARATELE.jpg' },
+    { id:9, name: 'PRAJITURI ASORTATE', price: 100, weight: '1,000 kg', imageUrl:'PRAJITURI_ASORTATE.jpg' },
+    { id:10, name: 'MOUSSE CU CIOCOLATA SI FILING DE ALUNE', price: 120, weight: '1,000 kg',imageUrl:'MOUSSE.jpg' },
+    { id:11, name: 'MOUSSE DE FISTIC CU SOS DE ZMEURA', price: 120, weight: '1,000 kg',imageUrl:'MOUSSE.jpg' },
+    { id:12, name: 'MOUSSE DE CARAMEL CU INSERTIE DE CAFEA', price: 120, weight: '1,000 kg', imageUrl:'MOUSSE.jpg' },
+    { id:13, name: 'MOUSSE DULCE DE LECHE SI MERE CARAMELIZATE', price: 120, weight: '1,000 kg', imageUrl:'MOUSSE.jpg' },
+    { id:14, name: 'MOUSSE PORTOCALE SI MASCARPONE', price: 120, weight: '1,000 kg', imageUrl:'MOUSSE.jpg' },
+    { id:15, name: 'XMAS CAKE', price: 260, weight: '2,000 kg', imageUrl:'XMAS-CAKE.jpg' },
   ];
 
   return (
@@ -64,7 +64,8 @@ const App = () => {
                 phone: '',
                 email: '',
                 products: [],
-                weight: ''
+                weight: '',
+                id: ''
               }}
               validationSchema={Yup.object({
                 name: Yup.string().required('Este necesară completarea acestui câmp'),
@@ -73,6 +74,7 @@ const App = () => {
                 products: Yup.array().of(
                   Yup.object().shape({
                     quantity: Yup.number().positive().required('Required'),
+                    id: Yup.number().positive().required('Required'),
                   })
                 ).min(1, 'The error message if length === 0 | 1'),
               })}
@@ -84,7 +86,7 @@ const App = () => {
                 formData.append('products', JSON.stringify(values.products));
                 axios
                   .post(
-                    'https://script.google.com/macros/s/AKfycbwUVszx4bfoMSF508wTyO-nENO3N5O1E7qMihVfr-3gLcMv1SkFYVs1QMmy-a3Etfw9/exec',
+                    'https://script.google.com/macros/s/AKfycbxwXtFF5cB9Oxqotb_70WfDU2VE4HlgWmxI1zfgajNbM3FyhbxvLr4HJVuG7bCXOGcM/exec',
                     formData
                   )
                   .then((response) => {

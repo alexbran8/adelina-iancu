@@ -59,7 +59,7 @@ export const AddProduct = ({ selectedProductType, setSelectedProductType, isSubm
                         const productDetails = products.find(product => product.name === selectedProductType)
                         setFieldValue('products', [
                             ...values.products,
-                            { description: '', quantity: 1, type: selectedProductType, price: productDetails?.price, weight: productDetails?.weight, imageUrl: productDetails?.imageUrl, content: productDetails?.content },
+                            { description: '', quantity: 1, type: selectedProductType, price: productDetails?.price, weight: productDetails?.weight, imageUrl: productDetails?.imageUrl, id: productDetails?.id ?? selectedProductType, content: productDetails?.content, },
                         ]);
                         setSelectedProductType('');
                     }}
