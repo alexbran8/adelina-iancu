@@ -162,7 +162,7 @@ const App = () => {
                     </Grid>
                     <Grid item size={12}>
                       <OrderList
-                        values={values} handleBlur={handleBlur} handleChange={handleChange} isSubmitting={isSubmitting} errors={errors} touched={touched}
+                        values={values} handleBlur={handleBlur} handleChange={handleChange} isSubmitting={isSubmitting} errors={errors} touched={touched} setFieldValue={setFieldValue}
                       />
                     </Grid>
                     <Grid item size={12}>

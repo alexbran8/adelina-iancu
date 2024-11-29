@@ -28,7 +28,7 @@ const StyledTextField = styled(TextField)({
     },
 });
 
-export const OrderList = ({ values, handleBlur, handleChange, isSubmitting, errors, touched }) => {
+export const OrderList = ({ values, handleBlur, handleChange, isSubmitting, errors, touched, setFieldValue }) => {
     return (
         <FieldArray name="products">
             {({ remove }) => (
@@ -41,6 +41,7 @@ export const OrderList = ({ values, handleBlur, handleChange, isSubmitting, erro
                             errors={errors}
                             touched={touched}
                             remove={remove}
+                            setFieldValue={setFieldValue}
                         />
                     ) : (
                         <Typography variant="body2" align="center" paddingTop={2}>Nu ati adaugat nici un produs.</Typography>
@@ -51,7 +52,7 @@ export const OrderList = ({ values, handleBlur, handleChange, isSubmitting, erro
 }
 
 
-const ProductTable = ({ values, isSubmitting, handleBlur, handleChange, errors, touched, remove }) => {
+const ProductTable = ({ values, isSubmitting, handleBlur, handleChange, errors, touched, remove, setFieldValue }) => {
     const total = values.products.reduce((total, product) => {
         return total + (product.quantity * product.price || 0);
     }, 0);
@@ -82,6 +83,7 @@ const ProductTable = ({ values, isSubmitting, handleBlur, handleChange, errors, 
                 isSubmitting={isSubmitting}
                 remove={remove}
                 total={total}
+                setFieldValue={setFieldValue}
             /> :
             <DesktopList
                 values={values}
@@ -95,7 +97,22 @@ const ProductTable = ({ values, isSubmitting, handleBlur, handleChange, errors, 
     )
 };
 
-const MobileList = ({ values, isSubmitting, handleBlur, handleChange, errors, touched, remove, total }) => {
+const MobileList = ({ values, isSubmitting, handleBlur, handleChange, errors, touched, remove, total, setFieldValue }) => {
+
+    const handleIncrement = (index) => {
+        const updatedProducts = [...values.products];
+        updatedProducts[index].quantity = (updatedProducts[index].quantity || 0) + 1;
+        setFieldValue(`products.${index}.quantity`, updatedProducts[index].quantity);
+    };
+    
+    const handleDecrement = (index) => {
+        const updatedProducts = [...values.products];
+        if (updatedProducts[index].quantity > 1) {
+            updatedProducts[index].quantity -= 1;
+            setFieldValue(`products.${index}.quantity`, updatedProducts[index].quantity);
+        }
+    };
+
     return (
         <Grid container spacing={2} paddingTop={2} justifyContent={"center"}>
             <Grid item size={12}>
@@ -151,6 +168,48 @@ const MobileList = ({ values, isSubmitting, handleBlur, handleChange, errors, to
                                     margin="normal"
                                     disabled={isSubmitting}
                                 />
+                            </Grid>
+                            <Grid item size={12}>
+                            <Grid container spacing={1} justifyContent="center" sx={{ marginTop: 1 }}>
+                                <Grid item size={6}>
+                                    <Button
+                                        type="button"
+                                        onClick={() => handleIncrement(index)}
+                                        disabled={isSubmitting}
+                                        style={{
+                                            width: '100%',
+                                            padding: '1rem',
+                                            fontSize: '1rem',
+                                            backgroundColor: '#4caf50',
+                                            color: '#fff',
+                                            border: 'none',
+                                            borderRadius: '4px',
+                                            cursor: 'pointer',
+                                        }}
+                                    >
+                                        +
+                                    </Button>
+                                </Grid>
+                                <Grid item size={6}>
+                                    <Button
+                                        type="button"
+                                        onClick={() => handleDecrement(index)}
+                                        disabled={isSubmitting || product.quantity <= 1}
+                                        style={{
+                                            width: '100%',
+                                            padding: '1rem',
+                                            fontSize: '1rem',
+                                            backgroundColor: '#f44336',
+                                            color: '#fff',
+                                            border: 'none',
+                                            borderRadius: '4px',
+                                            cursor: 'pointer',
+                                        }}
+                                    >
+                                        -
+                                    </Button>
+                                </Grid>
+                            </Grid>
                             </Grid>
                             <Grid item size={3}><b>Preț:</b></Grid>
                             <Grid item size={3}>{product.price} RON</Grid>
