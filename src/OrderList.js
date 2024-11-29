@@ -125,7 +125,7 @@ const MobileList = ({ values, isSubmitting, handleBlur, handleChange, errors, to
                                 {product.type}: {product.weight ?? product.content}
                             </Grid>
                             <Grid item size={12}>
-                                <StyledTextField
+                                <TextField
                                     fullWidth
                                     id={`products.${index}.quantity`}
                                     name={`products.${index}.quantity`}
@@ -137,7 +137,10 @@ const MobileList = ({ values, isSubmitting, handleBlur, handleChange, errors, to
                                     InputProps={{
                                         inputProps: {
                                             type: 'number',
-                                            min: 1
+                                            min: 1,
+                                            onKeyDown: (event) => {
+                                                event.preventDefault();
+                                             },
                                         },
                                     }}
                                     error={
