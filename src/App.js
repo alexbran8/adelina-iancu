@@ -30,7 +30,7 @@ const App = () => {
       imageUrl:'MINI-BABKA.jpg'
     },
     { id:1, name: 'BABKA CIOCOLATĂ ȘI NUCĂ', price: 100, weight: '1,300 kg',imageUrl:'BABKA.jpg' },
-    { id:2, name: 'BABKA MAC ȘI VȘSINE', price: 100, weight: '1,300 kg',imageUrl:'BABKA.jpg' },
+    { id:2, name: 'BABKA MAC ȘI VȘINE', price: 100, weight: '1,300 kg',imageUrl:'BABKA.jpg' },
     { id:3, name: 'BABKA MERE ȘI VANILIE', price: 100, weight: '1,300 kg', imageUrl:'BABKA.jpg' },
     { id:4, name: 'BABKA FISTIC ȘI ZMEURĂ', price: 120, weight: '1,300 kg', imageUrl:'BABKA.jpg' },
     { id:5, name: 'BABKA CARAMEL, MERE ȘI NUCI', price: 120, weight: '1,300 kg', imageUrl:'BABKA.jpg' },
