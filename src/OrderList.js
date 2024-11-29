@@ -108,21 +108,22 @@ const MobileList = ({ values, isSubmitting, handleBlur, handleChange, errors, to
                 <Grid item xs={12} key={index}>
                     <Paper sx={{ padding: 2, marginBottom: 2 }}>
                         <Grid container spacing={1}>
-                            <Grid item size={3}><b>#{index + 1}</b></Grid>
-                            <Grid item size={9}>{product.type}: {product.weight}
-                            </Grid>
-                            <Grid>
+                            <Grid item size={1}><b>#{index + 1}</b></Grid>
+                            <Grid item size={3}>
                                 <img
-                                src={`/products/${product.imageUrl}`}
-                                alt={product.name}
-                                style={{
-                                    width: 300,
-                                    height: 300,
-                                    objectFit: 'contain',
-                                    marginRight: '10px',
-                                    borderRadius: '4px',
-                                }}
-                            /></Grid>
+                                    src={`/products/${product.imageUrl}`}
+                                    alt={product.name}
+                                    style={{
+                                        height: 100,
+                                        objectFit: 'contain',
+                                        marginRight: '10px',
+                                        borderRadius: '4px',
+                                    }}
+                                />
+                            </Grid>
+                            <Grid item size={8}>
+                                {product.type}: {product.weight ?? product.content}
+                            </Grid>
                             <Grid item size={12}>
                                 <StyledTextField
                                     fullWidth
@@ -191,7 +192,7 @@ const DesktopList = ({ values, isSubmitting, handleBlur, handleChange, errors, t
                 <TableHead>
                     <TableRow>
                         <TableCell sx={{ padding: '4px' }}>#</TableCell>
-                        <TableCell  colSpan={2} sx={{ padding: '4px' }}>Produs</TableCell>
+                        <TableCell colSpan={2} sx={{ padding: '4px' }}>Produs</TableCell>
                         <TableCell sx={{ padding: '4px' }}>Cantitate</TableCell>
                         <TableCell sx={{ padding: '4px' }}>Preț</TableCell>
                         <TableCell sx={{ padding: '4px' }}>Total</TableCell>
@@ -203,17 +204,17 @@ const DesktopList = ({ values, isSubmitting, handleBlur, handleChange, errors, t
                         <TableRow key={index}>
                             <TableCell sx={{ padding: '4px' }}>{index + 1}</TableCell>
                             <TableCell sx={{ padding: '4px' }}>
-                            <img
-                                src={`/products/${product.imageUrl}`}
-                                alt={product.name}
-                                style={{
-                                    width: 50,
-                                    height: 50,
-                                    objectFit: 'cover',
-                                    marginRight: '10px',
-                                    borderRadius: '4px',
-                                }}
-                            />
+                                <img
+                                    src={`/products/${product.imageUrl}`}
+                                    alt={product.name}
+                                    style={{
+                                        width: 50,
+                                        height: 50,
+                                        objectFit: 'cover',
+                                        marginRight: '10px',
+                                        borderRadius: '4px',
+                                    }}
+                                />
                             </TableCell>
                             <TableCell sx={{ padding: '4px' }}>{product.type} - {product.weight}</TableCell>
                             <TableCell sx={{ padding: '4px' }}>

@@ -42,7 +42,7 @@ export const AddProduct = ({ selectedProductType, setSelectedProductType, isSubm
                                                 flex: '1 1 auto',
                                             }}
                                         >
-                                            {`${product.name} (${product.content ?? product.weight} - ${product.price} RON)`}
+                                           <b>{`${product.name}`}</b> (${product.content ?? product.weight} - ${product.price} RON)
                                         </span>
                                     </div>
                                 </div>
@@ -56,9 +56,10 @@ export const AddProduct = ({ selectedProductType, setSelectedProductType, isSubm
                     type="button"
                     variant="outlined"
                     onClick={() => {
+                        const productDetails = products.find(product => product.name === selectedProductType)
                         setFieldValue('products', [
                             ...values.products,
-                            { description: '', quantity: 1, type: selectedProductType, price: products.find(product => product.name === selectedProductType)?.price, weight: products.find(product => product.name === selectedProductType)?.weight, imageUrl: products.find(product => product.name === selectedProductType)?.imageUrl },
+                            { description: '', quantity: 1, type: selectedProductType, price: productDetails?.price, weight: productDetails?.weight, imageUrl: productDetails?.imageUrl, content: productDetails?.content },
                         ]);
                         setSelectedProductType('');
                     }}
