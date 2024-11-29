@@ -21,14 +21,19 @@ export const AddProduct = ({ selectedProductType, setSelectedProductType, isSubm
                         disabled={isSubmitting}
                     >
                         {products.map((product, index) => (
-                            <MenuItem key={index} value={product.name}>
+                            <MenuItem
+                                key={index}
+                                value={product.name}
+                                style={{
+                                    maxWidth: window.innerWidth >= 768 ? '750px' : '100%', // Apply maxWidth only on desktop
+                                }}
+                            >
                                 <div style={{ display: 'flex', alignItems: 'center' }}>
                                     <img
                                         src={`/products/${product.imageUrl}`}
                                         alt={product.name}
                                         style={{
                                             width: '50px',
-                                            // height: '20px',
                                             objectFit: 'cover',
                                             marginRight: '10px',
                                             borderRadius: '4px',
@@ -42,11 +47,12 @@ export const AddProduct = ({ selectedProductType, setSelectedProductType, isSubm
                                                 flex: '1 1 auto',
                                             }}
                                         >
-                                           <b>{`${product.name}`}</b> ({product.content ?? product.weight} - {product.price} RON)
+                                            <b>{`${product.name}`}</b> ({product.content ?? product.weight} - <b>{product.price} RON</b>)
                                         </span>
                                     </div>
                                 </div>
                             </MenuItem>
+
                         ))}
                     </Select>
                 </FormControl>
