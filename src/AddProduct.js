@@ -42,7 +42,7 @@ export const AddProduct = ({ selectedProductType, setSelectedProductType, isSubm
                                                 flex: '1 1 auto',
                                             }}
                                         >
-                                           <b>{`${product.name}`}</b> (${product.content ?? product.weight} - ${product.price} RON)
+                                           <b>{`${product.name}`}</b> ({product.content ?? product.weight} - {product.price} RON)
                                         </span>
                                     </div>
                                 </div>
