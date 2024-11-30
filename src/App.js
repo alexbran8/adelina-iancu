@@ -62,12 +62,14 @@ const App = () => {
                 email: '',
                 products: [],
                 weight: '',
-                id: ''
+                id: '',
+                consent: false
               }}
               validationSchema={Yup.object({
                 name: Yup.string().required('Este necesară completarea acestui câmp'),
                 phone: Yup.string().required('Este necesară completarea acestui câmp'),
                 email: Yup.string().email('Adresă de e-mail invalidă'),
+                consent: Yup.boolean().required(),
                 products: Yup.array().of(
                   Yup.object().shape({
                     quantity: Yup.number().positive().required('Required'),
@@ -170,6 +172,7 @@ const App = () => {
                         handleChange={handleChange}
                         errors={errors}
                         touched={touched}
+                        setFieldValue={setFieldValue}
                       />
                     </Grid>
                   </Grid>
