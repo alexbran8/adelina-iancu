@@ -15,7 +15,7 @@ export const PrivacyPolicy = () => {
                 1. Cine suntem?
             </Typography>
             <Typography variant="body1" paragraph>
-                Noi, [Numele Companiei], cu sediul în Arad, Strada Tribunul Dobra nr. 18, suntem responsabili pentru prelucrarea datelor dumneavoastră personale. Puteți să ne contactați la adelinaiancu@yahoo.com.
+                Noi, S.C. Vidican Food S.R.L., cu sediul în Arad, Strada Tribunul Dobra nr. 18, suntem responsabili pentru prelucrarea datelor dumneavoastră personale. Puteți să ne contactați la adelinaiancu@yahoo.com.
             </Typography>
 
             <Typography variant="h6" gutterBottom>
