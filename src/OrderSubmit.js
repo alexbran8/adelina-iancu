@@ -7,7 +7,7 @@ import { Checkbox, FormControlLabel, Typography } from '@mui/material';
 
 export const OrderSubmit = ({ values, isSubmitting, isValid, setFieldValue }) => {
     return (
-        <Grid container direction={"column"} alignItems={"center"} >
+        <Grid container direction={"column"} alignItems={"center"} paddingTop={5}>
             <FormControlLabel
                 control={
                     <Checkbox
