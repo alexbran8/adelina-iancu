@@ -30,13 +30,13 @@ export const PrivacyPolicy = () => {
                 <li>Adresa pentru livrare/comandă</li>
                 <li>Comanda dumneavoastră</li>
             </ul>
-
             <Typography variant="h6" gutterBottom>
                 3. Cum utilizăm datele colectate?
             </Typography>
             <Typography variant="body1" paragraph>
                 Datele personale sunt utilizate exclusiv în scopuri legitime, cum ar fi:
             </Typography>
+
             <ul>
                 <li>Procesarea comenzilor și livrarea acestora</li>
                 <li>Contactarea dumneavoastră pentru actualizări sau întrebări legate de comenzi</li>
@@ -45,9 +45,11 @@ export const PrivacyPolicy = () => {
             <Typography variant="h6" gutterBottom>
                 4. Care este temeiul legal pentru prelucrarea datelor?
             </Typography>
+
             <Typography variant="body1" paragraph>
                 Prelucrarea datelor dumneavoastră se face pe baza următoarelor temeiuri legale:
             </Typography>
+
             <ul>
                 <li>Executarea unui comenzi</li>
                 <li>Obligații legale</li>
@@ -56,9 +58,11 @@ export const PrivacyPolicy = () => {
             <Typography variant="h6" gutterBottom>
                 5. Cine are acces la datele dumneavoastră?
             </Typography>
+
             <Typography variant="body1" paragraph>
                 Datele dumneavoastră sunt accesibile numai:
             </Typography>
+
             <ul>
                 <li>Echipei noastre interne care gestionează comenzile</li>
                 <li>Autorităților, dacă este necesar prin lege</li>
@@ -67,6 +71,7 @@ export const PrivacyPolicy = () => {
             <Typography variant="h6" gutterBottom>
                 6. Cum protejăm datele dumneavoastră?
             </Typography>
+
             <Typography variant="body1" paragraph>
                 Luăm măsuri tehnice și organizatorice adecvate pentru a proteja datele dumneavoastră împotriva accesului neautorizat, pierderii sau distrugerii. Utilizăm:
             </Typography>

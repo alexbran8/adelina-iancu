@@ -5,7 +5,8 @@ import axios from 'axios';
 import {
   TextField,
   Grid2 as Grid,
-  Typography
+  Typography,
+  MenuItem
 } from '@mui/material';
 
 import { OrderList } from './OrderList';
@@ -18,7 +19,14 @@ import "./App.css"
 
 const App = () => {
   const [selectedProductType, setSelectedProductType] = useState('');
-  const [isOrderSent, setIsOrderSent] = useState(false)
+  const [isOrderSent, setIsOrderSent] = useState(false);
+  const [pickupIntervals, setPickupIntervals] = useState([]);
+
+  const dateOptions = ["20", "21", "22", "23", "24"];
+  const intervalOptions = {
+    default: ["09:00-11:00", "11:00-13:00", "13:00-15:00", "15:00-19:00"],
+    restricted: ["09:00-11:00", "11:00-13:00", "13:00-15:00"],
+  };
 
   const products = [
     {
@@ -27,19 +35,19 @@ const App = () => {
         'MINI BABKA CIOCOLATĂ ȘI NUCĂ',
       price: 60,
       weight: '0,500 kg',
-      imageUrl:'MINI-BABKA.jpg'
+      imageUrl: 'MINI-BABKA.jpg'
     },
-    { id:1, name: 'BABKA CIOCOLATĂ ȘI NUCĂ', price: 100, weight: '1,300 kg',imageUrl:'BABKA.jpg' },
-    { id:2, name: 'BABKA MAC ȘI VȘINE', price: 100, weight: '1,300 kg',imageUrl:'BABKA.jpg' },
-    { id:3, name: 'BABKA MERE ȘI VANILIE', price: 100, weight: '1,300 kg', imageUrl:'BABKA.jpg' },
-    { id:4, name: 'BABKA FISTIC ȘI ZMEURĂ', price: 120, weight: '1,300 kg', imageUrl:'BABKA.jpg' },
-    { id:5, name: 'BABKA CARAMEL, MERE ȘI NUCI', price: 120, weight: '1,300 kg', imageUrl:'BABKA.jpg' },
-    { id:6, name: 'PACHET CRĂCIUN', price: 100, content: 'vin Bianco Vila Veche 1l, 200g nuci, minibabka ciocolata si nuca 300g', imageUrl:'PACHET_CRACIUN.jpg' },
-    { id:7, name: 'FURSECURI', price: 50, weight: '0,500 kg', imageUrl:'FURSECURI.jpg' },
-    { id:8, name: 'SĂRĂȚELE', price: 70, weight: '1,000 kg', imageUrl:'SARATELE.jpg' },
-    { id:9, name: 'PRĂJITURI ASORTATE', price: 100, weight: '1,000 kg', imageUrl:'PRAJITURI_ASORTATE.jpg', content: 'Snickers, Kinder, Nes, Amandină, Fructe, Dulcinea' },
-    { id:10, name: 'MOUSSE-URI', price: 120, weight: '1,000 kg',imageUrl:'MOUSSE.jpg', content: 'Ciocolată și filling de alune, fistic cu sos de zmeură, caramel cu inserție de cafea, dulce de leche și mere caramelizate, portocale și mascarpone' },
-    { id:15, name: 'XMAS CAKE', price: 260, weight: '2,000 kg', imageUrl:'XMAS-CAKE.jpg', content: 'Cremă de portocală, mousse de ciocolată, dulce de leche, mascarpone' },
+    { id: 1, name: 'BABKA CIOCOLATĂ ȘI NUCĂ', price: 100, weight: '1,300 kg', imageUrl: 'BABKA.jpg' },
+    { id: 2, name: 'BABKA MAC ȘI VȘINE', price: 100, weight: '1,300 kg', imageUrl: 'BABKA.jpg' },
+    { id: 3, name: 'BABKA MERE ȘI VANILIE', price: 100, weight: '1,300 kg', imageUrl: 'BABKA.jpg' },
+    { id: 4, name: 'BABKA FISTIC ȘI ZMEURĂ', price: 120, weight: '1,300 kg', imageUrl: 'BABKA.jpg' },
+    { id: 5, name: 'BABKA CARAMEL, MERE ȘI NUCI', price: 120, weight: '1,300 kg', imageUrl: 'BABKA.jpg' },
+    { id: 6, name: 'PACHET CRĂCIUN', price: 100, content: 'vin Bianco Vila Veche 1l, 200g nuci, minibabka ciocolata si nuca 300g', imageUrl: 'PACHET_CRACIUN.jpg' },
+    { id: 7, name: 'FURSECURI', price: 50, weight: '0,500 kg', imageUrl: 'FURSECURI.jpg' },
+    { id: 8, name: 'SĂRĂȚELE', price: 70, weight: '1,000 kg', imageUrl: 'SARATELE.jpg' },
+    { id: 9, name: 'PRĂJITURI ASORTATE', price: 100, weight: '1,000 kg', imageUrl: 'PRAJITURI_ASORTATE.jpg', content: 'Snickers, Kinder, Nes, Amandină, Fructe, Dulcinea' },
+    { id: 10, name: 'MOUSSE-URI', price: 120, weight: '1,000 kg', imageUrl: 'MOUSSE.jpg', content: 'Ciocolată și filling de alune, fistic cu sos de zmeură, caramel cu inserție de cafea, dulce de leche și mere caramelizate, portocale și mascarpone' },
+    { id: 15, name: 'XMAS CAKE', price: 260, weight: '2,000 kg', imageUrl: 'XMAS-CAKE.jpg', content: 'Cremă de portocală, mousse de ciocolată, dulce de leche, mascarpone' },
   ];
 
   return (
@@ -63,13 +71,17 @@ const App = () => {
                 products: [],
                 weight: '',
                 id: '',
-                consent: false
+                consent: false,
+                pickUpDate: '',
+                pickUpTime: ''
               }}
               validationSchema={Yup.object({
                 name: Yup.string().required('Este necesară completarea acestui câmp'),
                 phone: Yup.string().required('Este necesară completarea acestui câmp'),
                 email: Yup.string().email('Adresă de e-mail invalidă'),
                 consent: Yup.boolean().required(),
+                pickUpDate: Yup.string().required('Este necesar sa selectati o data de ridicare a comenzii dvs.'),
+                pickUpTime: Yup.string().required('Este necesar sa selectati un interval de ridicare a comenzii dvs.'),
                 products: Yup.array().of(
                   Yup.object().shape({
                     quantity: Yup.number().positive().required('Required'),
@@ -83,9 +95,11 @@ const App = () => {
                 formData.append('phone', values.phone)
                 formData.append('email', values.email)
                 formData.append('products', JSON.stringify(values.products));
+                formData.append('pickUpDate', values.pickUpDate);
+                formData.append('pickUpTime', values.pickUpTime);
                 axios
                   .post(
-                    'https://script.google.com/macros/s/AKfycbwgVC-jQ2Nn9SX_uuVZWfYflohm6XH5NzAEbaHYYRpfyNbeBT5OWOEgxdSwpl5c0zOL/exec',
+                    'https://script.google.com/macros/s/AKfycbx_bdwXRlqbVmbLIy90U5HJG_KwTEjcreTsGJdEC7Bt95bZHzem1K4rFgPwRZES4OYz/exec',
                     formData
                   )
                   .then((response) => {
@@ -141,6 +155,49 @@ const App = () => {
                         disabled={isSubmitting}
                         required
                       />
+                      <TextField
+                        select
+                        fullWidth
+                        id="pickupDate"
+                        name="pickupDate"
+                        label="Data ridicare"
+                        value={values.pickupDate}
+                        onChange={(e) => {
+                          const selectedDate = e.target.value;
+                          setFieldValue('pickUpDate', selectedDate);
+                          setPickupIntervals(
+                            selectedDate === "24" ? intervalOptions.restricted : intervalOptions.default
+                          );
+                        }}
+                        margin="normal"
+                        required
+                        disabled={isSubmitting}
+                      >
+                        {dateOptions.map((date) => (
+                          <MenuItem key={date} value={date}>
+                            {`${date} Decembrie`}
+                          </MenuItem>
+                        ))}
+                      </TextField>
+                      <TextField
+                        select
+                        fullWidth
+                        id="pickupInterval"
+                        name="pickupInterval"
+                        label="Interval ridicare"
+                        value={values.pickupInterval}
+                        onChange={(e) => setFieldValue('pickUpTime', e.target.value)}
+                        margin="normal"
+                        required
+                        disabled={!values.pickUpDate || isSubmitting}
+                      >
+                        {pickupIntervals.map((interval, index) => (
+                          <MenuItem key={index} value={interval}>
+                            {interval}
+                          </MenuItem>
+                        ))}
+                      </TextField>
+
                       {/* <TextField
                         fullWidth
                         id="email"
