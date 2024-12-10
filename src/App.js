@@ -13,6 +13,7 @@ import { OrderList } from './OrderList';
 import { ThankYouMessage } from './ThankYou';
 import { OrderSubmit } from './OrderSubmit';
 import { AddProduct } from './AddProduct';
+import {Footer} from "./components/Footer.js";
 
 import { Logo } from "./Logo"
 import "./App.css"
@@ -51,6 +52,8 @@ const App = () => {
   ];
 
   return (
+    <div className="app">
+      <div className="content">
     <Grid container spacing={2} justifyContent="center" padding={2} >
       <Grid item padding={3}>
         <Logo />
@@ -241,7 +244,11 @@ const App = () => {
         : <Grid item size={12}>
           <ThankYouMessage setIsOrderSent={setIsOrderSent} />
         </Grid>}
+       
     </Grid>
+    </div>
+    <Footer />
+    </div>
   );
 };
 

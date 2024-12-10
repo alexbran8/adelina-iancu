@@ -39,7 +39,7 @@ export const OrderSubmit = ({ values, isSubmitting, isValid, setFieldValue }) =>
                     fullWidth
                     type="submit"
                     disabled={isSubmitting || !isValid || !values.consent}
-                    style={{ marginTop: '16px', marginBottom: '50px' }}
+                    style={{ marginTop: '16px', marginBottom: '10px' }}
                 >
                     Trimite comanda
                 </Button>
