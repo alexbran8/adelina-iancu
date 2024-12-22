@@ -23,7 +23,7 @@ const App = () => {
   const [isOrderSent, setIsOrderSent] = useState(false);
   const [pickupIntervals, setPickupIntervals] = useState([]);
 
-  const dateOptions = ["22", "23", "24"];
+  const dateOptions = ["23", "24"];
   const intervalOptions = {
     default: ["09:00-11:00", "11:00-13:00", "13:00-15:00", "15:00-19:00"],
     restricted: ["09:00-11:00", "11:00-13:00", "13:00-15:00"],
