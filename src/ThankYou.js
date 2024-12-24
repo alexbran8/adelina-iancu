@@ -32,7 +32,7 @@ export const ThankYouMessage = ({ setIsOrderSent }) => {
           </Typography>
           <CardContent>
             <Typography variant="h5" gutterBottom align='center'>
-              Comanda dumneavoastră se poate ridica, <b>între 23 și 24 Decembrie</b>, de la următoarea locație:
+              Comanda dumneavoastră se poate ridica, <b>între 29 și 31 Decembrie</b>, de la următoarea locație:
             </Typography>
             <Divider style={{ marginBottom: '1rem' }} />
             <Typography variant="body1">
@@ -48,11 +48,11 @@ export const ThankYouMessage = ({ setIsOrderSent }) => {
               <strong>Program ridicare:</strong>
               <ul style={{ paddingLeft: 40, marginTop: 2 }}>
                 <li>
-                  <b>23 Decembrie:</b> 09:00 - 19:00
+                  <b>29 și 30 Decembrie:</b> 09:00 - 19:00
                 </li>
                 <li
                 >
-                  <b>24 Decembrie:</b> 09:00 - 15:00
+                  <b>31 Decembrie:</b> 09:00 - 15:00
                 </li>
               </ul>
             </Typography>
