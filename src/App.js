@@ -43,7 +43,7 @@ const App = () => {
     { id: 3, name: 'BABKA MERE ȘI VANILIE', price: 100, weight: '1,300 kg', imageUrl: 'BABKA.jpg' },
     { id: 4, name: 'BABKA FISTIC ȘI ZMEURĂ', price: 120, weight: '1,300 kg', imageUrl: 'BABKA.jpg' },
     { id: 5, name: 'BABKA CARAMEL, MERE ȘI NUCI', price: 120, weight: '1,300 kg', imageUrl: 'BABKA.jpg' },
-    { id: 6, name: 'PACHET CRĂCIUN', price: 100, content: 'vin Bianco Vila Veche 1l, 200g nuci, minibabka ciocolata si nuca 300g', imageUrl: 'PACHET_CRACIUN.jpg' },
+    { id: 6, name: 'PACHET REVELION', price: 100, content: 'vin Bianco Vila Veche 1l, 200g nuci, minibabka ciocolata si nuca 300g', imageUrl: 'PACHET_CRACIUN.jpg' },
     { id: 7, name: 'FURSECURI', price: 50, weight: '0,500 kg', imageUrl: 'FURSECURI.jpg' },
     { id: 8, name: 'SĂRĂȚELE', price: 70, weight: '1,000 kg', imageUrl: 'SARATELE.jpg' },
     { id: 9, name: 'PRĂJITURI ASORTATE', price: 100, weight: '1,000 kg', imageUrl: 'PRAJITURI_ASORTATE.jpg', content: 'Snickers, Kinder, Nes, Amandină, Fructe, Dulcinea' },
