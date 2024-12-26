@@ -66,8 +66,8 @@ const App = () => {
             weight: '',
             id: '',
             consent: false,
-            pickUpDate: '30',
-            pickUpTime: '09-13'
+            pickUpDate: '',
+            pickUpTime: ''
           }}
           validationSchema={Yup.object({
             name: Yup.string().required('Este necesară completarea acestui câmp'),
@@ -120,7 +120,7 @@ const App = () => {
           }) => (
 
             <>
-              {isOrderSent ? <>
+              {!isOrderSent ? <>
                 <Grid item size={12}>
                   <Typography variant="h4" align="center" fontWeight="bold">
                     Formular comandă
