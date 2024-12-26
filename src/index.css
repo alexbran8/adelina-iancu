@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the container is at least as tall as the viewport */
+}
+
+.content {
+  flex: 1; /* Pushes the footer to the bottom */
+  padding: 0px;
+}
