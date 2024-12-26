@@ -37,19 +37,6 @@ export const RidicareComenzi = ({ pickUpDate, pickUpTime }) => {
                         <Typography variant="body1">
                             <strong>Detalii suplimentare:</strong> {details.additionalDetails}
                         </Typography>
-                        <Typography variant="body1">
-                            <strong>Program ridicare:</strong>
-                            <ul style={{ paddingLeft: 40, marginTop: 2 }}>
-                                <li>
-                                    <b>29 și 30 Decembrie:</b> 09:00 - 19:00
-                                </li>
-                                <li
-                                >
-                                    <b>31 Decembrie:</b> 09:00 - 15:00
-                                </li>
-                            </ul>
-                        </Typography>
-
                     </CardContent>
                     <Typography variant="h4" gutterBottom align="center">
                         Locație pe hartă

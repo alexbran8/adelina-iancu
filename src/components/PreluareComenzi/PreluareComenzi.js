@@ -10,7 +10,7 @@ export const PreluareComenzi = () => {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                minHeight: "95vh",
+                minHeight: "100vh",
                 textAlign: "center",
                 backgroundColor: "#f9f9f9",
             }}

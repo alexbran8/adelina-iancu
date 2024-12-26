@@ -19,9 +19,9 @@ root.render(
             <Route path="/preluare-comenzi" element={<PreluareComenzi />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           </Routes>
-          <Footer />
         </Router>
       </div>
+      <Footer />
     </div>
   </React.StrictMode>
 );
