@@ -71,7 +71,10 @@ const App = () => {
           }}
           validationSchema={Yup.object({
             name: Yup.string().required('Este necesară completarea acestui câmp'),
-            phone: Yup.string().required('Este necesară completarea acestui câmp'),
+            phone: Yup.string().matches(
+              /^0[7-9][0-9]{8}$/,
+              'Numărul de telefon trebuie să fie în formatul corect (ex: 07XX123456)'
+            ).required('Este necesară completarea acestui câmp'),
             email: Yup.string().email('Adresă de e-mail invalidă'),
             consent: Yup.boolean().required(),
             pickUpDate: Yup.string().required('Este necesar sa selectati o data de ridicare a comenzii dvs.'),
@@ -240,7 +243,7 @@ const App = () => {
                 </Grid>
               </>
                 : <Grid item size={12}>
-                  <ThankYouMessage setIsOrderSent={setIsOrderSent} pickUpDate={values.pickUpDate} pickUpTime={values.pickUpTime}/>
+                  <ThankYouMessage setIsOrderSent={setIsOrderSent} pickUpDate={values.pickUpDate} pickUpTime={values.pickUpTime} />
                 </Grid>} </>
           )}
         </Formik>
