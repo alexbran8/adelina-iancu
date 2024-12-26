@@ -43,12 +43,12 @@ const App = () => {
     { id: 3, name: 'BABKA MERE ȘI VANILIE', price: 100, weight: '1,300 kg', imageUrl: 'BABKA.jpg' },
     { id: 4, name: 'BABKA FISTIC ȘI ZMEURĂ', price: 120, weight: '1,300 kg', imageUrl: 'BABKA.jpg' },
     { id: 5, name: 'BABKA CARAMEL, MERE ȘI NUCI', price: 120, weight: '1,300 kg', imageUrl: 'BABKA.jpg' },
-    { id: 6, name: 'PACHET REVELION', price: 100, content: 'vin Bianco Vila Veche 1l, 200g nuci, minibabka ciocolata si nuca 300g', imageUrl: 'PACHET_CRACIUN.jpg' },
+    { id: 6, name: 'PACHET VIN', price: 100, content: 'vin Bianco Vila Veche 1l, 200g nuci, minibabka ciocolata si nuca 300g', imageUrl: 'PACHET_CRACIUN.jpg' },
     { id: 7, name: 'FURSECURI', price: 50, weight: '0,500 kg', imageUrl: 'FURSECURI.jpg' },
     { id: 8, name: 'SĂRĂȚELE', price: 70, weight: '1,000 kg', imageUrl: 'SARATELE.jpg' },
     { id: 9, name: 'PRĂJITURI ASORTATE', price: 100, weight: '1,000 kg', imageUrl: 'PRAJITURI_ASORTATE.jpg', content: 'Snickers, Kinder, Nes, Amandină, Fructe, Dulcinea' },
     { id: 10, name: 'MOUSSE-URI', price: 120, weight: '1,000 kg', imageUrl: 'MOUSSE.jpg', content: 'Ciocolată și filling de alune, fistic cu sos de zmeură, caramel cu inserție de cafea, dulce de leche și mere caramelizate, portocale și mascarpone' },
-    // { id: 15, name: 'CAKE', price: 260, weight: '2,000 kg', imageUrl: 'XMAS-CAKE.jpg', content: 'Cremă de portocală, mousse de ciocolată, dulce de leche, mascarpone' },
+    { id: 15, name: "NEW YEAR'S CAKE", price: 260, weight: '2,000 kg', imageUrl: 'CAKE.jpeg', content: 'Cremă de portocală, mousse de ciocolată, dulce de leche, mascarpone' },
   ];
 
   return (
