@@ -16,7 +16,7 @@ root.render(
         <Router>
           <Routes>
             <Route path="/" element={<App />} />
-            <Route path="/preluare-comenzi" element={<PreluareComenzi />} />
+            {/* <Route path="/preluare-comenzi" element={<PreluareComenzi />} /> */}
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           </Routes>
         </Router>
