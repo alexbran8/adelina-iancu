@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { PrivacyPolicy } from './components/PrivacyPolicy'
@@ -15,7 +15,7 @@ root.render(
       <div className="content">
         <Router>
           <Routes>
-            <Route path="/" element={<App />} />
+            <Route path="/" element={<PreluareComenzi />} />
             {/* <Route path="/preluare-comenzi" element={<PreluareComenzi />} /> */}
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           </Routes>
