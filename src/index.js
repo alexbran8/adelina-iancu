@@ -7,12 +7,14 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { PrivacyPolicy } from './components/PrivacyPolicy'
 import { PreluareComenzi } from './components/PreluareComenzi/PreluareComenzi'
 import { Footer } from "./components/Footer.js";
+import {Logo} from "./components/Logo/Logo.js"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <div className="app">
       <div className="content">
+      {/* <Logo /> */}
         <Router>
           <Routes>
             <Route path="/" element={<PreluareComenzi />} />

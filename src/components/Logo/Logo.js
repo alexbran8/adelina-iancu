@@ -1,4 +1,5 @@
-import LogoPicture from "./logo.png"
+import LogoPicture from "../../logo.png"
+import "./Logo.css"
 
 export const Logo = () =>
 

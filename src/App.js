@@ -14,7 +14,7 @@ import { ThankYouMessage } from './ThankYou';
 import { OrderSubmit } from './OrderSubmit';
 import { AddProduct } from './AddProduct';
 
-import { Logo } from "./Logo"
+import { Logo } from "./components/Logo/Logo"
 import "./App.css"
 
 const App = () => {
